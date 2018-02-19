@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 15px;
+}
+
+.switcher {
+    width: 30%;
+}
+.switcher__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.switcher__item {
+    padding: 5px 15px;
+}
+
+.switcher__link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.weeks__item {
+    width: 25%;
+    height: 25%;
+
+    position: relative;
+}
+
+.weeks__item::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 200vh;
+    background: #eeeeee;
+    left: 0;
+    top: 10px;
+}
+

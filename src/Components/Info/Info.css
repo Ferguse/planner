@@ -1,0 +1,35 @@
+.box {
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+    min-height: 50px;
+}
+
+.box__content {
+    width: 28%;
+    display: flex;
+    padding: 0 0 0 2%;
+}
+
+.box__percent {
+    margin-right: 15px;
+    width: 10%;
+    color: #919191;
+    display: flex;
+    align-items: center;
+}
+
+.box__info {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.box__calendar {
+    width: 70%;
+    display: flex;
+}
+.box__date {
+    width: 25%;
+    height: 100%;
+}
