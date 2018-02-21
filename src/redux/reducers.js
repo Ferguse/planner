@@ -1,13 +1,22 @@
 import users from '../source/users';
 import projects from '../source/projects';
 import numberShowWeek from '../source/numberShowWeek';
+import Immutable from 'immutable';
 
-export default function getDate(state = {users, projects, numberShowWeek}, action) {
+const initaialState = Immutable.fromJS(
+  {
+    users,
+    projects,
+    numberShowWeek
+  }
+)
+
+export default function getDate(state = initaialState, action) {
     switch (action.type) {
         case 'ADD_USER':
-            return state = Object.assign({}, { users: [...state.users, action.payload], projects: state.projects, numberShowWeek: state.numberShowWeek})
+            return state.get('users').insert(state.get('users').size, action.payload);
         case 'ADD_PROJECT':
-            return state = Object.assign({}, { users: state.users, projects: [...state.projects, action.payload], numberShowWeek: state.numberShowWeek });
+            return state.get('projects').insert(state.get('projects').size, action.payload);
         default:
             return state
     }

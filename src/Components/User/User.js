@@ -12,7 +12,7 @@ class User extends Component {
     var background;
     this.props.projects
       .filter(item => {
-        let result = item.workload.filter(i => {
+        let result = item.get('workload').filter(i => {
           return i.user === this.props.user.name
         })
         return (result.length > 0) ? true : false;
@@ -29,12 +29,12 @@ class User extends Component {
       })
 
     this.props.projects.forEach(item => {
-      var result = item.workload
+      var result = item.get('workload')
         .filter(i => {
           return i.user === this.props.user.name
         })
         .filter(i => {
-          return i.weeks.includes(num)
+          return i.get('weeks').includes(num)
         });
       if (result.length > 0) value += result[0].percent;
     });
@@ -50,11 +50,11 @@ class User extends Component {
           <div className="users__header">
             <div className="users__name">
               <p className="users__text users__title"
-                 style={{background: this.props.user.color}}>{this.props.user.name}</p>
+                 style={{background: this.props.user.get('color')}}>{this.props.user.get('name')}</p>
             </div>
             <div className="box__calendar">
               {
-                new Array(this.props.numberShowWeek.num).fill(0).map((item, i) => {
+                new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
                   return (
                     <div key={item + i} className="box__date" style={this.getColor(getNumWeek(new Date(), i))}></div>
                   )
@@ -66,10 +66,10 @@ class User extends Component {
             {
               this.props.projects
                 .filter(item => {
-                  return item.users.includes(this.props.user.name);
+                  return item.get('users').includes(this.props.user.get('name'));
                 })
                 .map(item => {
-                  return <Info key={item.id} project={item} user={this.props.user} title={item.title}/>
+                  return <Info key={item.id} project={item} user={this.props.user} title={item.get('title')}/>
                 })
             }
           </div>

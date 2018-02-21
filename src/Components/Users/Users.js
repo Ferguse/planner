@@ -48,12 +48,13 @@ class Users extends Component {
   }
 
   render() {
+    console.log(this.props.users);
     return (
       <section className="main">
         <div className="main__content">
           {
             this.props.users.map(item => {
-              return <User key={item.id} user={item}/>
+              return <User key={item.get('id')} user={item}/>
             })
           }
         </div>

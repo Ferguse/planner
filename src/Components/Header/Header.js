@@ -21,7 +21,7 @@ class Header extends Component {
         <div className="weeks">
           <ul className="weeks__list">
             {
-              new Array(this.props.numberShowWeek.num).fill(0).map((item, i) => {
+              new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
                 return (
                   <li key={item + i} className="weeks__item">
                     <span className="weeks__text">{this.setDate(new Date(), i)}</span>

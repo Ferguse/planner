@@ -7,12 +7,12 @@ const projects = [
         users: ["Тая", "Степан"],
         workload: [
             {
-                weeks: [47, 48],
+                weeks: [8, 9],
                 user: "Тая",
                 percent: 25
             },
             {
-                weeks: [47],
+                weeks: [10],
                 user: "Степан",
                 percent: 100
             }
@@ -27,7 +27,7 @@ const projects = [
         users: ["Тая"],
         workload: [
             {
-                weeks: [48, 49],
+                weeks: [10, 11],
                 user: "Тая",
                 percent: 50
             }
@@ -42,7 +42,7 @@ const projects = [
         users: ["Тая"],
         workload: [
             {
-                weeks: [49, 50],
+                weeks: [8, 10],
                 user: "Тая",
                 percent: 25
             }
@@ -57,7 +57,7 @@ const projects = [
         users: ["Степан"],
         workload: [
             {
-                weeks: [50],
+                weeks: [10],
                 user: "Степан",
                 percent: 20
             }
@@ -72,7 +72,7 @@ const projects = [
         users: ["Степан"],
         workload: [
             {
-                weeks: [48, 49],
+                weeks: [0, 1],
                 user: "Степан",
                 percent: 100
             }

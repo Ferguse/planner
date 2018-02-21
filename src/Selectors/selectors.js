@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 import numberShowWeek from "../source/numberShowWeek";
 
-export const getUser = state =>  state.users;
-export const getProject = state => state.projects;
-export const getNumberShowWeek = state => state.numberShowWeek;
+export const getUser = state =>  state.get('users');
+export const getProject = state => state.get('projects');
+export const getNumberShowWeek = state => state.get('numberShowWeek');
 
 export const userSelector = createSelector(
   [getUser],

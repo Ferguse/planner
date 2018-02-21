@@ -15,7 +15,7 @@ class Info extends Component {
       <div className="box">
         <div className="box__content">
           <div className="box__percent">
-            <span className="box__text">{this.getPercent(this.props.project.workload)}</span></div>
+            <span className="box__text">{this.getPercent(this.props.project.get('workload'))}</span></div>
           <div className="box__info">
             <span className="users__text">{this.props.title}</span>
           </div>
