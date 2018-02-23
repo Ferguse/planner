@@ -5,8 +5,11 @@ import {projectSelector, numberShowWeekSelector} from '../../Selectors/selectors
 import {createSelector} from "reselect";
 import {connect} from 'react-redux';
 
+// styled
+import { Container, Calendar } from './Calendar.styled';
 
-class Calendar extends Component {
+
+class CalendarComponent extends Component {
   filterProps = () => {
     return this.props.projects
       .find(i => {
@@ -62,20 +65,24 @@ class Calendar extends Component {
 
   render() {
     return (
-      <div className="calendar">
+      <Container>
         {
           new Array(this.props.numberShowWeek.get('num') - this.getLength()).fill(0).map((item, i) => {
             return (
-              <div key={item + i} className={this.setClassName(getNumWeek(new Date(), i))}
-                   style={this.getStyle(getNumWeek(new Date(), i))}>
-                <div className="calendar__inner" style={this.getColor(getNumWeek(new Date(), i))}></div>
+
+              <Calendar
+                key={item + i}
+                className={this.setClassName(getNumWeek(new Date(), i))}
+                // style={this.getStyle(getNumWeek(new Date(), i))}
+              >
+                <div style={this.getColor(getNumWeek(new Date(), i))}></div>
                 <i style={{background: this.getBackground(getNumWeek(new Date(), i))}}></i>
                 <i style={{background: this.getBackground(getNumWeek(new Date(), i))}}></i>
-              </div>
+              </Calendar>
             )
           })
         }
-      </div>
+      </Container>
     );
   }
 }
@@ -88,4 +95,4 @@ const selector = createSelector(
     numberShowWeek
   })
 );
-export default connect(selector)(Calendar);
+export default connect(selector)(CalendarComponent);
