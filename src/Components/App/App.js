@@ -1,22 +1,27 @@
 import React, {Component} from 'react';
-import './App.css';
-import Header from './Components/Header/Header';
-import Users from './Components/Users/Users';
-import Projects from './Components/Projects/Projects';
 import {connect} from 'react-redux';
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
 } from 'react-router-dom';
 
+//styles
+import './App.css';
+
+//components
+import Header from '../Header/Header';
+import Users from '../Users/Users';
+import Projects from '../Projects/Projects';
+import Title from '../Title/Title'
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <main className="App" role="main">
+                    <Title/>
                     <Header/>
                     <Switch>
                         <Route exact path="/" render={() => (<Redirect to="/users" />)} />
