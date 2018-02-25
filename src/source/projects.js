@@ -12,7 +12,7 @@ const projects = [
         percent: 25,
         dates: [
           {
-            start: '2018.03.03',
+            start: '2018.02.03',
             end: '2018.04.04'
           }
         ]
@@ -23,8 +23,8 @@ const projects = [
         percent: 100,
         dates: [
           {
-            'start': '2018.03.03',
-            'end': '2018.04.04'
+            start: '2018.02.03',
+            end: '2018.04.04'
           }
         ]
       }
@@ -41,7 +41,13 @@ const projects = [
       {
         weeks: [10, 11],
         user: 'ALex',
-        percent: 50
+        percent: 50,
+        dates: [
+          {
+            start: '2018.02.03',
+            end: '2018.04.04'
+          }
+        ]
       }
     ],
     history: []
@@ -56,7 +62,13 @@ const projects = [
       {
         weeks: [8, 10],
         user: 'Mary',
-        percent: 25
+        percent: 25,
+        dates: [
+          {
+            start: '2018.02.03',
+            end: '2018.04.04'
+          }
+        ]
       }
     ],
     history: []
@@ -71,7 +83,13 @@ const projects = [
       {
         weeks: [10],
         user: 'ALex',
-        percent: 20
+        percent: 20,
+        dates: [
+          {
+            start: '2018.02.03',
+            end: '2018.04.04'
+          }
+        ]
       }
     ],
     history: []
@@ -86,7 +104,13 @@ const projects = [
       {
         weeks: [0, 1],
         user: 'ALex',
-        percent: 100
+        percent: 100,
+        dates: [
+          {
+            start: '2018.02.03',
+            end: '2018.04.04'
+          }
+        ]
       }
     ],
     history: []

@@ -48,7 +48,6 @@ class Users extends Component {
   }
 
   render() {
-    console.log(this.props.users);
     return (
       <section className="main">
         <div className="main__content">

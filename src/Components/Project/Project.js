@@ -37,21 +37,13 @@ class Project extends Component {
               <p style={{background: this.props.project.get('color')}}
                  className="users__text users__title">{this.props.project.get('title')}</p>
             </div>
-            <div className="box__calendar">
-              {
-                new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
-                  return (
-                    <div key={item + i} className="box__date" style={this.getColor(getNumWeek(new Date(), i))}></div>
-                  )
-                })
-              }
-            </div>
           </div>
           <div className="users__data">
             {
-              this.props.users
-                .map(item => {
-                  return <Info key={item.get('id')} project={this.props.project} user={item} title={item.get('name')}/>
+              this.props.project.get('workload')
+                .map((item, i) => {
+                  console.log(item)
+                  return <Info key={i} project={item} user={item.get('user')} title={this.props.project.get('title')}/>
                 })
             }
           </div>

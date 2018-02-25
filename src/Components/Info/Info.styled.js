@@ -27,4 +27,19 @@ const InfoBox = styled.div`
   align-items: center;
 `;
 
-export { Container, Header, Percent, InfoBox };
+const Box = styled.div`
+  width: 5%;
+  background-color: ${({ isActive }) => ((isActive) ? 'darkred' : 'darkcyan')};
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Calendar = styled.div`
+  display: flex;
+  width: 68%;
+  padding: 0 2% 0 0;
+`;
+
+export { Container, Header, Percent, InfoBox, Box, Calendar };

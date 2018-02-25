@@ -1,29 +1,38 @@
-import React, {Component} from 'react';
-
-// components
-import Calendar from '../Calendar/Calendar'
+import React, {PureComponent} from 'react';
+import monthDays from '../../source/getMonthDays';
 
 //styled
-import { Container, Header, Percent, InfoBox } from './Info.styled';
-const getPercent = (arr, props) => {
-  let result = arr.filter(i => {
-    return i.user === props.user.name;
-  })[0]
-  return (result) ? result.percent + '%' : '-';
+import { Container, Header, Percent, InfoBox, Box, Calendar } from './Info.styled';
+
+class Info extends PureComponent {
+
+  getActiveElement = (i) => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const start = new Date(this.props.project.get('dates').first().get('start')).getTime();
+    const end = new Date(this.props.project.get('dates').first().get('end')).getTime();
+    const currentDate = new Date(`${year}-${month + 1}-${i}`);
+    return (currentDate.getTime() > start && currentDate.getTime() < end)
+  }
+
+  render () {
+    return (
+      <Container>
+      <Header>
+        <InfoBox>
+          <span>{this.props.project.get('user')}</span>
+        </InfoBox>
+      </Header>
+      <Calendar>
+        {
+          monthDays.map(i => <Box isActive={this.getActiveElement(i)} /> )
+        }
+      </Calendar>
+    </Container>
+  )
+  }
 }
-const Info = (props) => (
-  <Container>
-    <Header>
-      <Percent>
-        <span>{getPercent(props.project.get('workload'), props)}</span>
-      </Percent>
-      <InfoBox>
-        <span>{props.title}</span>
-      </InfoBox>
-    </Header>
-    <Calendar project={props.project} user={props.user}/>
-  </Container>
-);
 
 
 

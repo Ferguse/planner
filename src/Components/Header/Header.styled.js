@@ -5,42 +5,62 @@ const HeaderStyle = styled.div`
  width: 100%;
  border-bottom: 1px solid #eeeeee;
  margin-bottom: 15px;
+ position: fixed;
+ top: 60px;
+ background: white;
 `;
 
-const Weeks = styled.div`
+const Days = styled.div`
    width: 70%;
-   margin-left: 30%;
+   padding: 0 2% 0 0 ;
    height: 40px;
-   
-   ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    height: 100%;
-  }
+   display: flex;
+   align-items: center;
+`;
 
-  li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 25%;
-      position: relative;
-      
-      &::after {
-        position: absolute;
-        content: '';
-        width: 1px;
-        height: 200vh;
-        background: #eeeeee;
-        left: 0;
-        top: 10px;
-      }
+const Box = styled.div`
+  width: 5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  &::after {
+    position: absolute;
+    content: '';
+    height: 100vh;
+    width: 1px;
+    background: ${({ isLine }) => ((isLine) ? '#eee' : 'transparent')};
+    top: 0;
+    left: 0;
+  }
+`;
+
+const Month = styled.div`
+   width: 30%;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   border-bottom: 1px solid #eee;
+`;
+
+const Button = styled.button`
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: darkcyan;
+  
+  &:focus, &:active {
+    outline: none;
   }
 `;
 
 export {
   HeaderStyle,
-  Weeks
-}
+  Days,
+  Box,
+  Month,
+  Button
+};

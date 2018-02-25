@@ -4,8 +4,13 @@ import {numberShowWeekSelector, projectSelector} from "../../Selectors/selectors
 import {createSelector} from "reselect";
 import {connect} from "react-redux";
 
+// data
+import monthDays from '../../source/getMonthDays';
 // styled
-import { HeaderStyle, Weeks } from './Header.styled'
+import { HeaderStyle, Days, Box, Month, Button } from './Header.styled'
+
+const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 
 class Header extends Component {
   setDate = (date = new Date(), offset = 0) => {
@@ -17,19 +22,18 @@ class Header extends Component {
   render() {
     return (
       <HeaderStyle>
-        <Weeks>
-          <ul>
+        <Month>
+          <Button type='button'>Prev</Button>
             {
-              new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
-                return (
-                  <li key={item + i}>
-                    <span>{this.setDate(new Date(), i)}</span>
-                  </li>
-                )
-              })
+              month[new Date().getMonth()]
             }
-          </ul>
-        </Weeks>
+          <Button type='button'>Next</Button>
+        </Month>
+        <Days>
+          {
+            monthDays.map(i => <Box isLine={((i - 1) % 5 === 0)}>{i}</Box>)
+          }
+        </Days>
       </HeaderStyle>
     );
   }
