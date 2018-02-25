@@ -1,84 +1,96 @@
 const projects = [
-    {
-        id: "001",
-        title: "Стили карты: Анализ требований",
-        content: "Lorem ipsum",
-        color: "blue",
-        users: ["Тая", "Степан"],
-        workload: [
-            {
-                weeks: [8, 9],
-                user: "Тая",
-                percent: 25
-            },
-            {
-                weeks: [10],
-                user: "Степан",
-                percent: 100
-            }
-        ],
-        history: []
-    },
-    {
-        id: "002",
-        title: "Музей: Визуализация данных",
-        content: "Lorem ipsum",
-        color: "pink",
-        users: ["Тая"],
-        workload: [
-            {
-                weeks: [10, 11],
-                user: "Тая",
-                percent: 50
-            }
-        ],
-        history: []
-    },
-    {
-        id: "003",
-        title: "Платформа: Тестовые слои",
-        content: "Lorem ipsum",
-        color: "purple",
-        users: ["Тая"],
-        workload: [
-            {
-                weeks: [8, 10],
-                user: "Тая",
-                percent: 25
-            }
-        ],
-        history: []
-    },
-    {
-        id: "004",
-        title: "Код ревью карты музея",
-        content: "Lorem ipsum",
-        color: "orange",
-        users: ["Степан"],
-        workload: [
-            {
-                weeks: [10],
-                user: "Степан",
-                percent: 20
-            }
-        ],
-        history: []
-    },
-    {
-        id: "005",
-        title: "Отпуск",
-        content: "Lorem ipsum",
-        color: "#d8d8d8",
-        users: ["Степан"],
-        workload: [
-            {
-                weeks: [0, 1],
-                user: "Степан",
-                percent: 100
-            }
-        ],
-        history: []
-    }
-]
+  {
+    id: '001',
+    title: 'Styles',
+    content: 'Lorem ipsum',
+    color: 'blue',
+    users: ['Mary', 'ALex'],
+    workload: [
+      {
+        weeks: [8, 9],
+        user: 'Mary',
+        percent: 25,
+        dates: [
+          {
+            start: '2018.03.03',
+            end: '2018.04.04'
+          }
+        ]
+      },
+      {
+        weeks: [10],
+        user: 'ALex',
+        percent: 100,
+        dates: [
+          {
+            'start': '2018.03.03',
+            'end': '2018.04.04'
+          }
+        ]
+      }
+    ],
+    history: []
+  },
+  {
+    id: '002',
+    title: 'Museum: develop',
+    content: 'Lorem ipsum',
+    color: 'pink',
+    users: ['ALex'],
+    workload: [
+      {
+        weeks: [10, 11],
+        user: 'ALex',
+        percent: 50
+      }
+    ],
+    history: []
+  },
+  {
+    id: '003',
+    title: 'Platform',
+    content: 'Lorem ipsum',
+    color: 'purple',
+    users: ['Mary'],
+    workload: [
+      {
+        weeks: [8, 10],
+        user: 'Mary',
+        percent: 25
+      }
+    ],
+    history: []
+  },
+  {
+    id: '004',
+    title: 'Code review',
+    content: 'Lorem ipsum',
+    color: 'orange',
+    users: ['ALex'],
+    workload: [
+      {
+        weeks: [10],
+        user: 'ALex',
+        percent: 20
+      }
+    ],
+    history: []
+  },
+  {
+    id: '005',
+    title: 'Holiday',
+    content: 'Lorem ipsum',
+    color: '#d8d8d8',
+    users: ['ALex'],
+    workload: [
+      {
+        weeks: [0, 1],
+        user: 'ALex',
+        percent: 100
+      }
+    ],
+    history: []
+  }
+];
 
 export default projects;

@@ -6,6 +6,7 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
+import 'normalize.css'
 
 //styles
 import './App.css';
@@ -14,7 +15,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Users from '../Users/Users';
 import Projects from '../Projects/Projects';
-import Title from '../Title/Title'
+import Title from '../Navigation/Navigation'
 
 class App extends Component {
     render() {

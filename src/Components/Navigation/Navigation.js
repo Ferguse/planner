@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 //styled
-import Container from './Title.styled'
+import Container from './Navigation.styled'
 
 const Title = (props) => (
   <Container>

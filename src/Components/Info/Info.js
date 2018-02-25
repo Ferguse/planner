@@ -1,29 +1,30 @@
 import React, {Component} from 'react';
-import './Info.css';
+
+// components
 import Calendar from '../Calendar/Calendar'
 
-class Info extends Component {
-  getPercent = (arr) => {
-    let result = arr.filter(i => {
-      return i.user === this.props.user.name;
-    })[0]
-    return (result) ? result.percent + '%' : '-';
-  }
-
-  render() {
-    return (
-      <div className="box">
-        <div className="box__content">
-          <div className="box__percent">
-            <span className="box__text">{this.getPercent(this.props.project.get('workload'))}</span></div>
-          <div className="box__info">
-            <span className="users__text">{this.props.title}</span>
-          </div>
-        </div>
-        <Calendar project={this.props.project} user={this.props.user}/>
-      </div>
-    );
-  }
+//styled
+import { Container, Header, Percent, InfoBox } from './Info.styled';
+const getPercent = (arr, props) => {
+  let result = arr.filter(i => {
+    return i.user === props.user.name;
+  })[0]
+  return (result) ? result.percent + '%' : '-';
 }
+const Info = (props) => (
+  <Container>
+    <Header>
+      <Percent>
+        <span>{getPercent(props.project.get('workload'), props)}</span>
+      </Percent>
+      <InfoBox>
+        <span>{props.title}</span>
+      </InfoBox>
+    </Header>
+    <Calendar project={props.project} user={props.user}/>
+  </Container>
+);
+
+
 
 export default Info;

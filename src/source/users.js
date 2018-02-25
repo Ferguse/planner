@@ -1,12 +1,12 @@
 const users = [
     {
         id: "001",
-        name: "Тая",
+        name: "Mary",
         color: "#e440e6"
     },
     {
         id: "002",
-        name: "Степан",
+        name: "ALex",
         color: "#40b3e6"
     }
 ]
