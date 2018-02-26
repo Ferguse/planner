@@ -14,7 +14,7 @@ class Projects extends Component {
         <div>
           {
             this.props.projects.map(item => {
-              return <Project key={item.id} project={item}/>
+              return <Project month={this.props.month} key={item.id} project={item}/>
             })
           }
         </div>

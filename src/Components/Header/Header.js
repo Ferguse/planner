@@ -13,25 +13,19 @@ const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', '
 
 
 class Header extends Component {
-  setDate = (date = new Date(), offset = 0) => {
-    let ms = offset * 604800000;
-    let currentDate = date.getTime() + ms;
-    return getDate(currentDate)
-  }
-
-  render() {
+   render() {
     return (
       <HeaderStyle>
         <Month>
-          <Button type='button'>Prev</Button>
+          <Button type='button' onClick={this.props.changeMonth.bind(null, false)}>Prev</Button>
             {
-              month[new Date().getMonth()]
+              month[this.props.month]
             }
-          <Button type='button'>Next</Button>
+          <Button type='button' onClick={this.props.changeMonth.bind(null, true)}>Next</Button>
         </Month>
         <Days>
           {
-            monthDays.map(i => <Box isLine={((i - 1) % 5 === 0)}>{i}</Box>)
+            monthDays(this.props.year, this.props.month).map(i => <Box isLine={((i - 1) % 5 === 0)}>{i}</Box>)
           }
         </Days>
       </HeaderStyle>

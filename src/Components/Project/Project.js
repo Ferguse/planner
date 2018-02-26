@@ -41,10 +41,14 @@ class Project extends Component {
           <div className="users__data">
             {
               this.props.project.get('workload')
-                .map((item, i) => {
-                  console.log(item)
-                  return <Info key={i} project={item} user={item.get('user')} title={this.props.project.get('title')}/>
-                })
+                .map((item, i) => (
+                  <Info
+                    month={this.props.month}
+                    key={i} project={item}
+                    user={item.get('user')}
+                    title={this.props.project.get('title')}
+                  />
+                ))
             }
           </div>
         </div>
