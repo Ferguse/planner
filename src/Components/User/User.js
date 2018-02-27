@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Info from '../Info/Info';
+import Info from '../InfoUser/Info';
 import getNumWeek from '../../source/getNumWeek';
 import './User.css';
 import {numberShowWeekSelector, projectSelector, userSelector} from "../../Selectors/selectors";
@@ -49,28 +49,29 @@ class User extends Component {
         <div className="users">
           <div className="users__header">
             <div className="users__name">
-              <p className="users__text users__title"
-                 style={{background: this.props.user.get('color')}}>{this.props.user.get('name')}</p>
+              <p className="users__text users__title">{this.props.user}</p>
             </div>
             <div className="box__calendar">
               {
-                new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
-                  return (
-                    <div key={item + i} className="box__date" style={this.getColor(getNumWeek(new Date(), i))}></div>
-                  )
-                })
+                // new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
+                //   return (
+                //     <div key={item + i} className="box__date" style={this.getColor(getNumWeek(new Date(), i))}></div>
+                //   )
+                // })
               }
             </div>
           </div>
           <div className="users__data">
             {
               this.props.projects
-                .filter(item => {
-                  return item.get('users').includes(this.props.user.get('name'));
-                })
-                .map(item => {
-                  return <Info key={item.id} project={item} user={this.props.user} title={item.get('title')}/>
-                })
+                .map(item => (
+                  <Info
+                    month={this.props.month}
+                    key={item.id}
+                    project={item}
+                    user={this.props.user}
+                    title={item.get('title')}/>
+                ))
             }
           </div>
         </div>

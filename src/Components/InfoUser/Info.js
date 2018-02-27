@@ -14,24 +14,21 @@ class Info extends PureComponent {
     const now = new Date();
     const year = now.getFullYear();
     const month = this.props.month;
-    // console.log(this.props.project.get('workload').toJS())
-    // const start = new Date(this.props.project.get('workload').first().get('dates').get('start')).getTime();
-    // const end = new Date(this.props.project.get('workload').first().get('dates').first().get('end')).getTime();
-    // const currentDate = new Date(`${year}-${month + 1}-${i}`);
-    // return (currentDate.getTime() > start && currentDate.getTime() < end)
 
-    const start = new Date(this.props.project.get('dates').first().get('start')).getTime();
-    const end = new Date(this.props.project.get('dates').first().get('end')).getTime();
+
+    const start = new Date(this.props.project.get('workload').first().get('dates').first().get('start')).getTime();
+    const end = new Date(this.props.project.get('workload').first().get('dates').first().get('end')).getTime();
     const currentDate = new Date(`${year}-${month + 1}-${i}`);
     return (currentDate.getTime() > start && currentDate.getTime() < end)
   }
 
   render () {
+    console.log(this.props.project.get('title'))
     return (
       <Container>
       <Header>
         <InfoBox>
-          <span>{this.props.project.get('user')}</span>
+          <span>{this.props.project.get('title')}</span>
         </InfoBox>
       </Header>
       <Calendar>
