@@ -12,10 +12,11 @@ import 'normalize.css'
 import './App.css';
 
 //components
+import Admin from '../Admin/Admin';
 import Header from '../Header/Header';
 import Users from '../Users/Users';
 import Projects from '../Projects/Projects';
-import Navigation from '../Navigation/Navigation'
+import Navigation from '../Navigation/Navigation';
 
 class App extends Component {
   constructor(props) {
@@ -59,11 +60,6 @@ class App extends Component {
             <Router>
                 <main className="App" role="main">
                     <Navigation/>
-                    <Header
-                      month={this.state.month}
-                      year={this.state.year}
-                      changeMonth={this.changeMonth}
-                    />
                     <Switch>
                         <Route
                           exact path="/"
@@ -72,7 +68,16 @@ class App extends Component {
                               to="/users"
                               month={this.state.month}
                               year={this.state.year}
+                              changeMonth={this.changeMonth}
                             />
+                          )}
+                        />
+                        <Route
+                          exact
+                          path="/admin"
+                          changeMonth={this.changeMonth}
+                          render={() => (
+                            <Admin />
                           )}
                         />
                         <Route
@@ -80,6 +85,7 @@ class App extends Component {
                           path="/users"
                           render={() => (
                             <Users
+                              changeMonth={this.changeMonth}
                               onAddUser={this.props.onAddUser}
                               month={this.state.month}
                               year={this.state.year}
@@ -91,6 +97,7 @@ class App extends Component {
                           path="/projects"
                           render={() => (
                             <Projects
+                              changeMonth={this.changeMonth}
                               onAddProject={this.props.onAddProject}
                               month={this.state.month}
                               year={this.state.year}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Users.css';
 import User from '../User/User';
+import Header from '../Header/Header'
 import { projectSelector } from '../../Selectors/selectors';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
@@ -32,6 +33,11 @@ class Users extends Component {
 
     return (
       <Container>
+        <Header
+          month={this.state.month}
+          year={this.state.year}
+          changeMonth={this.props.changeMonth}
+        />
         <div className="main__content">
           {
             users.map(item => {
