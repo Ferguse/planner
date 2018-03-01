@@ -24,6 +24,10 @@ class Admin extends Component {
     });
   };
 
+  handleChange = (event) => {
+    
+  }
+
   render() {
     let users = this.props.projects
       .map(i => i.get('workload').map(i => i.get('user')))
@@ -36,11 +40,13 @@ class Admin extends Component {
           this.props.projects.map(item => (
             <Project>
               <Title>
-                {item.get('title')}
+                <span>
+                  {item.get('title')}
+                </span>
               </Title>
               <Box>
                 <label htmlFor="title">Title</label>
-                <input id='title' type="text" value={item.get('title')}/>
+                <input onChange={this.handleChange} id='title' type="text" value={item.get('title')}/>
               </Box>
               <Box>
                 <label htmlFor="Content">Content</label>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding-top: 90px;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -11,7 +11,11 @@ const Container = styled.div`
 const Project = styled.div`
   padding: 2rem;
   border-bottom: 1px solid #eee;
-  width: 80%;
+  width: 100%;
+  
+  &:nth-child(2n - 1) {
+  background: rgba(43,85,204,0.1);
+  }
 `;
 
 const Box = styled.div`
@@ -32,6 +36,12 @@ const Box = styled.div`
     padding: 15px 20px;
     width: 80%;
     border: 1px solid #eeeeee;
+    color:#6062fd;
+    text-align: center;
+    
+    &:focus {
+      outline: #6062fd;
+    }
   }
 `;
 
@@ -40,9 +50,13 @@ const Title = styled.div`
   justify-content: center;
   font-size: 1.5rem;
   text-transform: uppercase;
-  color: #171420;
   margin-bottom: 2rem;
   font-weight: bold;
+  text-decoration: #333333;
+  
+  span {
+    color: #473e5e;
+  }
 `;
 
 
