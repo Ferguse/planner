@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import Info from '../InfoUser/Info';
-import getNumWeek from '../../source/getNumWeek';
 import './User.css';
-import {numberShowWeekSelector, projectSelector, userSelector} from "../../Selectors/selectors";
-import {createSelector} from "reselect";
-import {connect} from "react-redux";
+import { numberShowWeekSelector, projectSelector } from "../../Selectors/selectors";
+import { createSelector } from "reselect";
+import { connect } from "react-redux";
 
 class User extends Component {
   getColor = (num) => {
