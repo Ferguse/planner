@@ -1,6 +1,6 @@
 const projects = [
   {
-    id: '001',
+    id: 0,
     title: 'Styles',
     content: 'Lorem ipsum',
     color: 'blue',
@@ -32,7 +32,7 @@ const projects = [
     history: []
   },
   {
-    id: '002',
+    id: 1,
     title: 'Museum: develop',
     content: 'Lorem ipsum',
     color: 'pink',
@@ -53,7 +53,7 @@ const projects = [
     history: []
   },
   {
-    id: '003',
+    id: 2,
     title: 'Platform',
     content: 'Lorem ipsum',
     color: 'purple',
@@ -74,7 +74,7 @@ const projects = [
     history: []
   },
   {
-    id: '004',
+    id: 3,
     title: 'Code review',
     content: 'Lorem ipsum',
     color: 'orange',
@@ -95,7 +95,7 @@ const projects = [
     history: []
   },
   {
-    id: '005',
+    id: 4,
     title: 'Holiday',
     content: 'Lorem ipsum',
     color: '#d8d8d8',

@@ -5,6 +5,9 @@ import {projectSelector} from '../../Selectors/selectors';
 import {createSelector} from 'reselect';
 import {connect} from 'react-redux';
 
+// reducers
+import { dataChanged } from '../../redux/reducers'
+
 // styles
 import {Container, Project, Box, Title, Nav, User, UserPannel, UserItem, Users, UserLine} from './Admin.styled';
 
@@ -27,7 +30,13 @@ class Admin extends Component {
   };
 
   handleChange = (event) => {
-
+    const data = {
+      id: this.state.isActive,
+      title: document.querySelector('#title').value,
+      content: document.querySelector('#content').value,
+      color: document.querySelector('#color').value,
+    }
+    this.props.dispatch(dataChanged(data))
   };
 
   handleClick = (index) => {
@@ -67,8 +76,8 @@ class Admin extends Component {
                 <input onChange={this.handleChange} id='title' type="text" value={item.get('title')}/>
               </Box>
               <Box>
-                <label htmlFor="Content">Content</label>
-                <textarea rows='5' id='Content' type="text" value={item.get('content')}/>
+                <label htmlFor="content">Content</label>
+                <textarea rows='5' id='content' type="text" value={item.get('content')}/>
               </Box>
               <Box>
                 <label htmlFor="color">Color</label>
