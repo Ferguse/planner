@@ -12,8 +12,8 @@ const projects = [
         percent: 25,
         dates: [
           {
-            start: '2018.11.03',
-            end: '2018.04.08'
+            start: '2018-11-03',
+            end: '2018-04-08'
           }
         ]
       },
@@ -23,8 +23,8 @@ const projects = [
         percent: 100,
         dates: [
           {
-            start: '2018.05.03',
-            end: '2018.04.04'
+            start: '2018-05-03',
+            end: '2018-04-04'
           }
         ]
       }
@@ -44,8 +44,8 @@ const projects = [
         percent: 50,
         dates: [
           {
-            start: '2018.10.03',
-            end: '2018.04.08'
+            start: '2018-10-03',
+            end: '2018-04-08'
           }
         ]
       }
@@ -65,8 +65,8 @@ const projects = [
         percent: 25,
         dates: [
           {
-            start: '2018.06.03',
-            end: '2018.04.08'
+            start: '2018-06-03',
+            end: '2018-04-08'
           }
         ]
       }
@@ -86,8 +86,8 @@ const projects = [
         percent: 20,
         dates: [
           {
-            start: '2018.03.03',
-            end: '2018.04.08'
+            start: '2018-03-03',
+            end: '2018-04-08'
           }
         ]
       }
@@ -107,8 +107,8 @@ const projects = [
         percent: 100,
         dates: [
           {
-            start: '2018.02.03',
-            end: '2018.04.04'
+            start: '2018-02-03',
+            end: '2018-04-04'
           }
         ]
       }
