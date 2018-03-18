@@ -1,5 +1,7 @@
 # Planner Component
 
+Look page: https://ferguse.github.io/planner/
+
 A simple but flexible table react component to display JSON data.
 As simple as feeding it with an array of objects.
 

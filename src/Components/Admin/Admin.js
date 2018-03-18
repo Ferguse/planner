@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Immutable from 'immutable'
 import './Admin.css';
 // import User from '../User/User';
 import {projectSelector} from '../../Selectors/selectors';
@@ -6,10 +7,21 @@ import {createSelector} from 'reselect';
 import {connect} from 'react-redux';
 
 // reducers
-import { dataChanged } from '../../redux/reducers'
+import { dataChanged, dataChangedUser, dataChangedUserDate } from '../../redux/reducers'
 
 // styles
-import {Container, Project, Box, Title, Nav, User, UserPannel, UserItem, Users, UserLine} from './Admin.styled';
+import {
+  Container,
+  Project,
+  Box,
+  Title,
+  Nav,
+  User,
+  UserPannel,
+  UserItem,
+  Users,
+  UserLine
+} from './Admin.styled';
 
 class Admin extends Component {
   constructor(props) {
@@ -31,12 +43,35 @@ class Admin extends Component {
 
   handleChange = (event) => {
     const data = {
-      id: this.state.isActive,
-      title: document.querySelector('#title').value,
-      content: document.querySelector('#content').value,
-      color: document.querySelector('#color').value,
-    }
-    this.props.dispatch(dataChanged(data))
+      title: event.target.getAttribute('id'),
+      index: event.target.getAttribute('index'),
+      value: event.target.value
+    };
+    this.props.dispatch(dataChanged(data));
+  };
+
+  handleChangeUser = (event) => {
+    const data = {
+      title: event.target.getAttribute('title'),
+      index: event.target.getAttribute('index'),
+      userindex: event.target.getAttribute('userindex'),
+      value: event.target.value
+    };
+    console.log(data)
+    this.props.dispatch(dataChangedUser(data));
+  };
+
+  handleChangeUserDate = (event) => {
+    const data = {
+      user: event.target.getAttribute('username'),
+      title: event.target.getAttribute('title'),
+      index: event.target.getAttribute('index'),
+      stage: event.target.getAttribute('stage'),
+      value: event.target.value,
+      userindex: event.target.getAttribute('userindex')
+    };
+    console.log(data)
+    this.props.dispatch(dataChangedUser(data));
   };
 
   handleClick = (index) => {
@@ -59,6 +94,7 @@ class Admin extends Component {
           {
             this.props.projects.map((item, i) => (
               <Title onClick={this.handleClick.bind(null, i)} isActive={this.state.isActive === i}>
+
                 <button type='button'>
                   <span>
                     {item.get('title')}
@@ -69,67 +105,107 @@ class Admin extends Component {
           }
         </Nav>
         {
-          this.props.projects.map((item, i) => (
-            <Project isActive={this.state.isActive === i}>
-              <Box>
-                <label htmlFor="title">Title</label>
-                <input onChange={this.handleChange} id='title' type="text" value={item.get('title')}/>
-              </Box>
-              <Box>
-                <label htmlFor="content">Content</label>
-                <textarea rows='5' id='content' type="text" value={item.get('content')}/>
-              </Box>
-              <Box>
-                <label htmlFor="color">Color</label>
-                <input id='color' type="text" value={item.get('color')}/>
-              </Box>
-              <Box>
-                <p>Users</p>
-              </Box>
-              <UserPannel>
-                <div>
-                  {
-                    item.get('workload').map((i, index) =>
-                      <UserItem onClick={this.handleClickUser.bind(null, index)} user={this.state.user === index}>
-                        <span>{i.get('user')}</span>
-                      </UserItem>
-                    )
-                  }
-                </div>
-                <Users>
-                  {
-                    item.get('workload').map((i, index) => (
-                      <User user={this.state.user === index}>
-                        <UserLine>
-                          <label htmlFor="user">User</label>
-                          <input id='user' type='text' value={i.get('user')}/>
-                        </UserLine>
-                        <UserLine>
-                          <label htmlFor="percent">Percent</label>
-                          <input id='percent' type='text' value={i.get('percent')}/>
-                        </UserLine>
-                        {
-                          i.get('dates').map(i => (
-                            <div>
-                              <UserLine>
-                                  <label htmlFor="start">Project start</label>
-                                  <input id='start' type="date" value={i.get('start')}/>
-                              </UserLine>
-                              <UserLine>
-                                  <label htmlFor="end">Project end</label>
-                                  <input id='end' type="date" value={i.get('end')}/>
-                              </UserLine>
-                            </div>
-                          ))
-                        }
+          this.props.projects.map((item, i) => {
+            const userName = item.get('user')
+            return (
+              <Project isActive={this.state.isActive === i}>
+                <Box>
+                  <label htmlFor="title">Title</label>
+                  <input onChange={this.handleChange} index={i} id='title' type="text" value={item.get('title')}/>
+                </Box>
+                <Box>
+                  <label htmlFor="content">Content</label>
+                  <textarea onChange={this.handleChange} index={i} rows='5' id='content' type="text" value={item.get('content')}/>
+                </Box>
+                <Box>
+                  <label htmlFor="color">Color</label>
+                  <input onChange={this.handleChange} index={i} id='color' type="text" value={item.get('color')}/>
+                </Box>
+                <Box>
+                  <p>Users</p>
+                </Box>
+                <UserPannel>
+                  <div>
+                    {
+                      item.get('workload').map((i, index) =>
+                        <UserItem onClick={this.handleClickUser.bind(null, index)} user={this.state.user === index}>
+                          <span>{i.get('user')}</span>
+                        </UserItem>
+                      )
+                    }
+                  </div>
+                  <Users>
+                    {
+                      item.get('workload').map((workload, index) => (
 
-                      </User>
-                    ))
-                  }
-                </Users>
-              </UserPannel>
-            </Project>
-          ))
+                        <User user={this.state.user === index}>
+                          {console.log(workload.get('user'))}
+                          <UserLine>
+                            <label htmlFor="user">User</label>
+                            <input
+                              onChange={this.handleChangeUser}
+                              title='user'
+                              index={i}
+                              type='text'
+                              value={workload.get('user')}
+                              username={workload.get('user')}
+                              userindex={index}
+                            />
+                          </UserLine>
+                          <UserLine>
+                            <label htmlFor="percent">Percent</label>
+                            <input
+                              onChange={this.handleChangeUser}
+                              title='percent'
+                              index={i}
+                              type='text'
+                              value={workload.get('percent')}
+                              username={workload.get('user')}
+                              userindex={index}
+                            />
+                          </UserLine>
+                          {
+                            workload.get('dates').map(date => (
+                              <div>
+                                <UserLine>
+                                  <label htmlFor="start">Project start</label>
+                                  <input
+                                    onChange={this.handleChangeUserDate}
+                                    title='start'
+                                    index={i}
+                                    type="date"
+                                    value={date.get('start')}
+                                    username={workload.get('user')}
+                                    stage='start'
+                                    userindex={index}
+                                  />
+                                </UserLine>
+                                <UserLine>
+                                  <label htmlFor="end">Project end</label>
+                                  <input
+                                    onChange={this.handleChangeUserDate}
+                                    title='end'
+                                    index={i}
+                                    type="date"
+                                    value={date.get('end')}
+                                    username={workload.get('user')}
+                                    stage='end'
+                                    userindex={index}
+                                  />
+                                </UserLine>
+                              </div>
+                            ))
+                          }
+
+                        </User>
+                      ))
+                    }
+                  </Users>
+                </UserPannel>
+              </Project>
+            )
+            }
+          )
         }
       </Container>
     );
