@@ -196,7 +196,6 @@ class Admin extends Component {
                               </div>
                             ))
                           }
-
                         </User>
                       ))
                     }
