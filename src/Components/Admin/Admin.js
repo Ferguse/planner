@@ -7,7 +7,7 @@ import {createSelector} from 'reselect';
 import {connect} from 'react-redux';
 
 // reducers
-import { dataChanged, dataChangedUser, dataChangedUserDate } from '../../redux/reducers'
+import { dataChanged, dataChangedUser, deleteProject, deleteUser, dataChangedUserDate } from '../../redux/reducers'
 
 // styles
 import {
@@ -57,7 +57,6 @@ class Admin extends Component {
       userindex: event.target.getAttribute('userindex'),
       value: event.target.value
     };
-    console.log(data)
     this.props.dispatch(dataChangedUser(data));
   };
 
@@ -70,7 +69,6 @@ class Admin extends Component {
       value: event.target.value,
       userindex: event.target.getAttribute('userindex')
     };
-    console.log(data)
     this.props.dispatch(dataChangedUser(data));
   };
 
@@ -86,6 +84,14 @@ class Admin extends Component {
       user: index
     });
   };
+
+  handleDelete = (item) => {
+    this.props.dispatch(deleteProject(item));
+  }
+
+  handleDeleteUser = (item) => {
+    this.props.dispatch(deleteUser(item));
+  }
 
   render() {
     return (
@@ -121,6 +127,7 @@ class Admin extends Component {
                   <label htmlFor="color">Color</label>
                   <input onChange={this.handleChange} index={i} id='color' type="text" value={item.get('color')}/>
                 </Box>
+                <button type='button' onClick={this.handleDelete.bind(null, i)}>Delete project</button>
                 <Box>
                   <p>Users</p>
                 </Box>
@@ -137,9 +144,7 @@ class Admin extends Component {
                   <Users>
                     {
                       item.get('workload').map((workload, index) => (
-
                         <User user={this.state.user === index}>
-                          {console.log(workload.get('user'))}
                           <UserLine>
                             <label htmlFor="user">User</label>
                             <input
@@ -196,6 +201,7 @@ class Admin extends Component {
                               </div>
                             ))
                           }
+                          <button type='button' onClick={this.handleDeleteUser.bind(null, index)}> Delete user</button>
                         </User>
                       ))
                     }

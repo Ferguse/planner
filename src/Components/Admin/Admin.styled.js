@@ -27,11 +27,26 @@ const Project = styled.div`
   padding: 2rem 30%;
   border-bottom: 1px solid #eee;
   width: 100%;
-  display: ${({ isActive }) => ((isActive) ? 'block' : 'none')};
+  display: ${({ isActive }) => ((isActive) ? 'flex' : 'none')};
+  flex-direction: column;
   opacity: 0;
   margin-top: 20px;
   animation: ${showContent} 1s ease-in-out;
   animation-fill-mode: forwards;
+  
+   button {
+    border: none;
+    background: #ff959e;
+    padding: 5px 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px 30%;
+    
+    &:focus {
+      outline: 1px solid red;
+    }
+  }
 `;
 
 const Box = styled.div`
@@ -99,16 +114,28 @@ const Title = styled.div`
 const Users = styled.div`
   display: flex;
   flex-direction: column;
+  
+  button {
+    border: none;
+    background: #ff959e;
+    padding: 5px 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    &:focus {
+      outline: 1px solid red;
+    }
+  }
 `;
 
 const User = styled.div`
-  display: ${({ user }) => ((user) ? 'flex' : 'none')};
+  display: ${({user}) => ((user) ? 'flex' : 'none')};
   flex-direction: column;
   opacity: 0;
   margin-top: 20px;
   animation: ${showContent} 1s ease-in-out;
   animation-fill-mode: forwards;
-
 `;
 
 const UserPannel = styled.div`
