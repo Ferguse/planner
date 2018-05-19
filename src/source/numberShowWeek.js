@@ -1,3 +1,3 @@
 export default {
-    num: 4
-}
+  num: 4
+};

@@ -87,11 +87,11 @@ class Admin extends Component {
 
   handleDelete = (item) => {
     this.props.dispatch(deleteProject(item));
-  }
+  };
 
   handleDeleteUser = (item) => {
     this.props.dispatch(deleteUser(item));
-  }
+  };
 
   render() {
     return (
@@ -99,8 +99,11 @@ class Admin extends Component {
         <Nav>
           {
             this.props.projects.map((item, i) => (
-              <Title onClick={this.handleClick.bind(null, i)} isActive={this.state.isActive === i}>
-
+              <Title
+                onClick={this.handleClick.bind(null, i)}
+                isActive={this.state.isActive === i}
+                key={i}
+              >
                 <button type='button'>
                   <span>
                     {item.get('title')}
@@ -135,7 +138,11 @@ class Admin extends Component {
                   <div>
                     {
                       item.get('workload').map((i, index) =>
-                        <UserItem onClick={this.handleClickUser.bind(null, index)} user={this.state.user === index}>
+                        <UserItem
+                          onClick={this.handleClickUser.bind(null, index)}
+                          user={this.state.user === index}
+                          key={i}
+                        >
                           <span>{i.get('user')}</span>
                         </UserItem>
                       )
@@ -144,7 +151,10 @@ class Admin extends Component {
                   <Users>
                     {
                       item.get('workload').map((workload, index) => (
-                        <User user={this.state.user === index}>
+                        <User
+                          key={index}
+                          user={this.state.user === index}
+                        >
                           <UserLine>
                             <label htmlFor="user">User</label>
                             <input
@@ -170,8 +180,8 @@ class Admin extends Component {
                             />
                           </UserLine>
                           {
-                            workload.get('dates').map(date => (
-                              <div>
+                            workload.get('dates').map((date, it) => (
+                              <div key={it}>
                                 <UserLine>
                                   <label htmlFor="start">Project start</label>
                                   <input
