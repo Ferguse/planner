@@ -86,23 +86,25 @@ class Admin extends Component {
   };
 
   render() {
+    const { projects } = this.props;
+    const { isActive, user } = this.state;
     return (
       <Container>
        <Navigation
-         projects={this.props.projects}
+         projects={projects}
          handleClick={this.handleClick}
-         isActive={this.state.isActive}
+         isActive={isActive}
        />
         {
-          this.props.projects.map((item, i) => {
+          projects.map((item, i) => {
             return (
               <Main
                 key={i}
                 i={i}
                 item={item}
-                isActive={this.state.isActive}
+                isActive={isActive}
                 handleChange={this.handleChange}
-                user={this.state.user}
+                user={user}
                 handleDeleteUser={this.handleDeleteUser}
                 handleDelete={this.handleDelete}
                 handleChangeUser={this.handleChangeUser}
