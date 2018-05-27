@@ -1,13 +1,15 @@
 import React from 'react';
 
 // styles
-import Project from './styles/Project';
-import Box from './styles/Box';
+import Container from './styles/Container';
 import User from './styles/User';
 import UserPannel from './styles/UserPannel';
 import UserItem from './styles/UserItem';
 import Users from './styles/Users';
 import UserLine from './styles/UserLine';
+
+// components
+import Project from '../Project';
 
 const Main = ({
                 item,
@@ -21,23 +23,13 @@ const Main = ({
                 handleDeleteUser,
                 handleClickUser
 }) => (
-  <Project isActive={isActive === i}>
-    <Box>
-      <label htmlFor="title">Title</label>
-      <input onChange={handleChange} index={i} id='title' type="text" value={item.get('title')}/>
-    </Box>
-    <Box>
-      <label htmlFor="content">Content</label>
-      <textarea onChange={handleChange} index={i} rows='5' id='content' type="text" value={item.get('content')}/>
-    </Box>
-    <Box>
-      <label htmlFor="color">Color</label>
-      <input onChange={handleChange} index={i} id='color' type="text" value={item.get('color')}/>
-    </Box>
-    <button type='button' onClick={handleDelete.bind(null, i)}>Delete project</button>
-    <Box>
-      <p>Users</p>
-    </Box>
+  <Container isActive={isActive === i}>
+    <Project
+      item={item}
+      i={i}
+      handleChange={handleChange}
+      handleDelete={handleDelete}
+    />
     <UserPannel>
       <div>
         {
@@ -121,7 +113,7 @@ const Main = ({
         }
       </Users>
     </UserPannel>
-  </Project>
-)
+  </Container>
+);
 
 export default Main;
