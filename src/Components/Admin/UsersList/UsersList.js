@@ -2,6 +2,8 @@ import React from 'react';
 
 // styles
 import UserItem from './styles/UserItem';
+import UserContent from '../UserContent/UserContent';
+import PropTypes from 'prop-types';
 
 const UsersList = ({ item, handleClickUser, user }) => (
   <div>
@@ -18,5 +20,11 @@ const UsersList = ({ item, handleClickUser, user }) => (
     }
   </div>
 );
+
+UsersList.propTypes = {
+  user: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
+  handleClickUser: PropTypes.func.isRequired,
+};
 
 export default UsersList;

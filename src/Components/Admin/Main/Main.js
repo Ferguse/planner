@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // styles
 import Container from './styles/Container';
@@ -37,5 +38,18 @@ const Main = ({
      />
   </Container>
 );
+
+Main.propTypes = {
+  item: PropTypes.object.isRequired,
+  i: PropTypes.number.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  user: PropTypes.number.isRequired,
+  handleChangeUser: PropTypes.func.isRequired,
+  handleChangeUserDate: PropTypes.func.isRequired,
+  handleDeleteUser: PropTypes.func.isRequired,
+  handleClickUser: PropTypes.func.isRequired
+};
 
 export default Main;

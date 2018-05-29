@@ -41,7 +41,11 @@ class Users extends Component {
         <div className="main__content">
           {
             users.map(item => {
-              return <User month={this.props.month} key={item.id} user={item}/>
+              return <User
+                month={this.props.month}
+                key={item.id}
+                user={item}
+              />
             })
           }
         </div>

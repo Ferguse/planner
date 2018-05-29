@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // styles
 import User from './styles/User';
 import UserLine from './styles/UserLine';
+import UserPannel from '../UserPannel/UserPannel';
 
 const UserContent = ({ i, user, handleChangeUser, workload, index, handleChangeUserDate, handleDeleteUser }) => (
   <User
@@ -68,5 +70,15 @@ const UserContent = ({ i, user, handleChangeUser, workload, index, handleChangeU
     <button type='button' onClick={handleDeleteUser.bind(null, index)}> Delete user</button>
   </User>
 );
+
+UserContent.propTypes = {
+  i: PropTypes.number.isRequired,
+  user: PropTypes.number.isRequired,
+  handleChangeUser: PropTypes.func.isRequired,
+  workload: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  handleChangeUserDate: PropTypes.func.isRequired,
+  handleDeleteUser: PropTypes.func.isRequired
+};
 
 export default UserContent;

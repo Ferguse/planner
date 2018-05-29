@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 // styles
 import Box from './styles/Box';
 import Container from './styles/Container';
+import PropTypes from 'prop-types';
 
 const Project = ({ i, handleChange, handleDelete, item }) => (
   <Container>
@@ -24,5 +25,12 @@ const Project = ({ i, handleChange, handleDelete, item }) => (
     </Box>
   </Container>
 );
+
+Project.propTypes = {
+  i: PropTypes.number.isRequired,
+  item: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired
+};
 
 export default Project;

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // styles
 import Container from './styles/Container';
 import Title from './styles/Title';
 
-export default ({ handleClick, isActive, projects }) => (
+const Navigation = ({ handleClick, isActive, projects }) => (
   <Container>
     {
       projects.map((item, i) => (
@@ -23,3 +24,11 @@ export default ({ handleClick, isActive, projects }) => (
     }
   </Container>
 )
+
+Navigation.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  projects: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
+};
+
+export default Navigation;
