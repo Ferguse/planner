@@ -1,9 +1,17 @@
-import React, {Component} from 'react';
-import Info from '../InfoUser/Info';
-import './User.css';
-import { numberShowWeekSelector, projectSelector } from "../../Selectors/selectors";
+import React, { Component } from 'react';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
+
+// styled
+import Info from '../InfoUser/Info';
+
+// selectors
+import { numberShowWeekSelector, projectSelector } from "../../Selectors/selectors";
+
+// components
+import Header from './styled/Header';
+import Name from './styled/Name';
+import Data from './styled/Data';
 
 class User extends Component {
   getColor = (num) => {
@@ -44,36 +52,25 @@ class User extends Component {
 
   render() {
     return (
-      <div className="block">
-        <div className="users">
-          <div className="users__header">
-            <div className="users__name">
-              <p className="users__text users__title">{this.props.user}</p>
-            </div>
-            <div className="box__calendar">
-              {
-                // new Array(this.props.numberShowWeek.get('num')).fill(0).map((item, i) => {
-                //   return (
-                //     <div key={item + i} className="box__date" style={this.getColor(getNumWeek(new Date(), i))}></div>
-                //   )
-                // })
-              }
-            </div>
-          </div>
-          <div className="users__data">
-            {
-              this.props.projects
-                .map(item => (
-                  <Info
-                    month={this.props.month}
-                    key={item.id}
-                    project={item}
-                    user={this.props.user}
-                    title={item.get('title')}/>
-                ))
-            }
-          </div>
-        </div>
+      <div>
+        <Header>
+          <Name>
+            <p>{this.props.user}</p>
+          </Name>
+        </Header>
+        <Data>
+          {
+            this.props.projects
+              .map(item => (
+                <Info
+                  month={this.props.month}
+                  key={item.id}
+                  project={item}
+                  user={this.props.user}
+                  title={item.get('title')}/>
+              ))
+          }
+        </Data>
       </div>
     );
   }
