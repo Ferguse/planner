@@ -1,7 +1,7 @@
 import React from 'react';
 
-// styles
-import UserItem from './styles/UserItem';
+// styled
+import UserItem from './styled/UserItem';
 import UserContent from '../UserContent/UserContent';
 import PropTypes from 'prop-types';
 

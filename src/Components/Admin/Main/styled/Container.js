@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import showContent from '../../styles/showContent.keyframe';
+import showContent from '../../styled/showContent.keyframe';
 
 export default styled.div`
   padding: 2rem 30%;

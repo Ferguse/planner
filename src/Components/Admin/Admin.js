@@ -8,8 +8,8 @@ import {connect} from 'react-redux';
 // reducers
 import { dataChanged, dataChangedUser, deleteProject, deleteUser, dataChangedUserDate } from '../../redux/reducers'
 
-// styles
-import Container from './styles/Container';
+// styled
+import Container from './styled/Container';
 import Main from './Main';
 
 // components

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import UsersList from '../UsersList';
 import UserContent from '../UserContent/UserContent';
 
-// styles
-import Container from './styles/Container';
-import Users from './styles/Users';
+// styled
+import Container from './styled/Container';
+import Users from './styled/Users';
 
 const UserPannel = (
   { i, item, user, handleClickUser, handleChangeUser, handleChangeUserDate, handleDeleteUser }) => (

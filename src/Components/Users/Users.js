@@ -6,7 +6,7 @@ import { projectSelector } from '../../Selectors/selectors';
 import { createSelector } from "reselect";
 import { connect } from "react-redux";
 
-// styles
+// styled
 import { Container } from './Users.styled'
 
 class Users extends Component {

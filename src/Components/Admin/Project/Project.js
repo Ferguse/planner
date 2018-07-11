@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-// styles
-import Box from './styles/Box';
-import Container from './styles/Container';
+// styled
+import Box from './styled/Box';
+import Container from './styled/Container';
 import PropTypes from 'prop-types';
 
 const Project = ({ i, handleChange, handleDelete, item }) => (

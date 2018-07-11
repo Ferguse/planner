@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import 'normalize.css'
 
-//styles
+//styled
 import './App.css';
 
 //components

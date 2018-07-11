@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import User from './styles/User';
-import UserLine from './styles/UserLine';
+// styled
+import User from './styled/User';
+import UserLine from './styled/UserLine';
 import UserPannel from '../UserPannel/UserPannel';
 
 const UserContent = ({ i, user, handleChangeUser, workload, index, handleChangeUserDate, handleDeleteUser }) => (

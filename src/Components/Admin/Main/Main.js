@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import Container from './styles/Container';
+// styled
+import Container from './styled/Container';
 
 // components
 import Project from '../Project';
