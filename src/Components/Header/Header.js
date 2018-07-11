@@ -1,35 +1,55 @@
-import React, {Component} from 'react';
-import getDate from '../../source/getDate';
-import {numberShowWeekSelector, projectSelector} from "../../Selectors/selectors";
-import {createSelector} from "reselect";
-import {connect} from "react-redux";
+import React, { Component } from 'react';
+import { createSelector } from "reselect";
+import { connect } from "react-redux";
 
-// data
+// selectors
+import { numberShowWeekSelector } from "../../Selectors/selectors";
+
+// source
 import monthDays from '../../source/getMonthDays';
+import month from '../../source/months';
+
 // styled
-import { HeaderStyle, Days, Box, Month, Button } from './Header.styled'
-
-const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+import Container from './styled/Container';
+import Month from './styled/Month';
+import Button from './styled/Button';
+import Days from './styled/Days';
+import Box from './styled/Box';
 
 class Header extends Component {
-   render() {
-    return (
-      <HeaderStyle>
-        <Month>
-          <Button type='button' onClick={this.props.changeMonth.bind(null, false)}>Prev</Button>
-            {
-              month[this.props.month]
-            }
-          <Button type='button' onClick={this.props.changeMonth.bind(null, true)}>Next</Button>
-        </Month>
-        <Days>
-          {
-            monthDays(this.props.year, this.props.month).map(i => <Box isLine={((i - 1) % 5 === 0)}>{i}</Box>)
-          }
-        </Days>
-      </HeaderStyle>
-    );
+  render() {
+   return (
+     <Container>
+       <Month>
+         <Button
+           type='button'
+           onClick={this.props.changeMonth.bind(null, false)}
+         >
+           Prev
+         </Button>
+           {
+             month[this.props.month]
+           }
+         <Button
+           type='button'
+           onClick={this.props.changeMonth.bind(null, true)}
+         >
+           Next
+         </Button>
+       </Month>
+       <Days>
+         {
+           monthDays(this.props.year, this.props.month)
+             .map(item => (
+               <Box isLine={((item - 1) % 5 === 0)}>
+                 {item}
+               </Box>
+               )
+             )
+         }
+       </Days>
+     </Container>
+   );
   }
 }
 
