@@ -1,12 +1,17 @@
-import React, {Component} from 'react';
-import Immutable from 'immutable'
-// import User from '../User/User';
-import {projectSelector} from '../../Selectors/selectors';
-import {createSelector} from 'reselect';
-import {connect} from 'react-redux';
+import React, {Component } from 'react';
+import { createSelector } from 'reselect';
+import { connect } from 'react-redux';
+
+// selectors
+import { projectSelector } from '../../Selectors/selectors';
 
 // reducers
-import { dataChanged, dataChangedUser, deleteProject, deleteUser, dataChangedUserDate } from '../../redux/reducers'
+import {
+  dataChanged,
+  dataChangedUser,
+  deleteProject,
+  deleteUser,
+} from '../../redux/reducers'
 
 // styled
 import Container from './styled/Container';
