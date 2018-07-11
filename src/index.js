@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './Components/App/App';
-import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import getDate from "./redux/reducers";
 import {createStore} from "redux";
+
+// components
+import App from './Components/App';
+
+// serviceWorker
+import registerServiceWorker from './registerServiceWorker';
+
 
 // const store = createStore(getDate);
 const store = createStore(

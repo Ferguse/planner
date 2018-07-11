@@ -8,6 +8,9 @@ import {
 } from 'react-router-dom';
 import 'normalize.css'
 
+// styled
+import './styled/commonStyled';
+
 //components
 import Admin from '../Admin';
 import Users from '../Users';
