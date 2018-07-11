@@ -1,10 +1,16 @@
-import React, {Component} from 'react';
-import Info from '../Info/Info';
-import getNumWeek from '../../source/getNumWeek';
-import './Project.css';
-import {numberShowWeekSelector, projectSelector, userSelector} from "../../Selectors/selectors";
+import React, { Component } from 'react';
 import {createSelector} from "reselect";
 import {connect} from "react-redux";
+
+// styled
+import Info from '../Info/Info';
+import Header from './styled/Header';
+import Name from './styled/Name';
+import Data from './styled/Data';
+
+// selectors
+import {numberShowWeekSelector, projectSelector, userSelector} from "../../Selectors/selectors";
+
 
 class Project extends Component {
   getColor = (num) => {
@@ -30,28 +36,29 @@ class Project extends Component {
 
   render() {
     return (
-      <div className="block">
-        <div className="users">
-          <div className="users__header">
-            <div className="users__name">
-              <p style={{background: this.props.project.get('color')}}
-                 className="users__text users__title">{this.props.project.get('title')}</p>
-            </div>
-          </div>
-          <div className="users__data">
-            {
-              this.props.project.get('workload')
-                .map((item, i) => (
-                  <Info
-                    month={this.props.month}
-                    key={i} project={item}
-                    user={item.get('user')}
-                    title={this.props.project.get('title')}
-                  />
-                ))
-            }
-          </div>
-        </div>
+      <div>
+        <Header>
+          <Name>
+            <p
+              style={{background: this.props.project.get('color')}}
+            >
+              {this.props.project.get('title')}
+            </p>
+          </Name>
+        </Header>
+        <Data>
+          {
+            this.props.project.get('workload')
+              .map((item, i) => (
+                <Info
+                  month={this.props.month}
+                  key={i} project={item}
+                  user={item.get('user')}
+                  title={this.props.project.get('title')}
+                />
+              ))
+          }
+        </Data>
       </div>
     );
   }
