@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import './Users.css';
-import User from '../User/User';
-import Header from '../Header/Header'
-import { projectSelector } from '../../Selectors/selectors';
-import { createSelector } from "reselect";
 import { connect } from "react-redux";
 
+// container
+import User from '../User/User';
+import Header from '../Header/Header'
+
+// selectors
+import { projectSelector } from '../../Selectors/selectors';
+import { createSelector } from "reselect";
+
 // styled
-import { Container } from './Users.styled'
+import Container from './styled/Container';
 
 class Users extends Component {
   constructor(props) {
