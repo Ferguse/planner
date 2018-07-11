@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,18 +8,14 @@ import {
 } from 'react-router-dom';
 import 'normalize.css'
 
-//styled
-import './App.css';
-
 //components
-import Admin from '../Admin/Admin';
-import Header from '../Header/Header';
-import Users from '../Users/Users';
-import Projects from '../Projects/Projects';
-import Navigation from '../Navigation/Navigation';
+import Admin from '../Admin';
+import Users from '../Users';
+import Projects from '../Projects';
+import Navigation from '../Navigation';
 
 class App extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       month: null,
@@ -52,75 +48,75 @@ class App extends Component {
     this.setState({
       month: month,
       year: month
-    })
-    console.log(month)
+    });
   }
-    render() {
-        return (
-            <Router>
-                <main className="App" role="main">
-                    <Navigation/>
-                    <Switch>
-                        <Route
-                          exact path="/"
-                          render={() => (
-                            <Redirect
-                              to="/users"
-                              month={this.state.month}
-                              year={this.state.year}
-                              changeMonth={this.changeMonth}
-                            />
-                          )}
-                        />
-                        <Route
-                          exact
-                          path="/admin"
-                          changeMonth={this.changeMonth}
-                          render={() => (
-                            <Admin />
-                          )}
-                        />
-                        <Route
-                          exact
-                          path="/users"
-                          render={() => (
-                            <Users
-                              changeMonth={this.changeMonth}
-                              onAddUser={this.props.onAddUser}
-                              month={this.state.month}
-                              year={this.state.year}
-                            />
-                          )}
-                        />
-                        <Route
-                          exact
-                          path="/projects"
-                          render={() => (
-                            <Projects
-                              changeMonth={this.changeMonth}
-                              onAddProject={this.props.onAddProject}
-                              month={this.state.month}
-                              year={this.state.year}
-                            />
-                          )}
-                        />
-                    </Switch>
-                </main>
-            </Router>
-        );
-    }
+
+  render() {
+    return (
+      <Router>
+        <main role="main">
+          <Navigation/>
+          <Switch>
+            <Route
+              exact path="/"
+              render={() => (
+                <Redirect
+                  to="/users"
+                  month={this.state.month}
+                  year={this.state.year}
+                  changeMonth={this.changeMonth}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/admin"
+              changeMonth={this.changeMonth}
+              render={() => (
+                <Admin/>
+              )}
+            />
+            <Route
+              exact
+              path="/users"
+              render={() => (
+                <Users
+                  changeMonth={this.changeMonth}
+                  onAddUser={this.props.onAddUser}
+                  month={this.state.month}
+                  year={this.state.year}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/projects"
+              render={() => (
+                <Projects
+                  changeMonth={this.changeMonth}
+                  onAddProject={this.props.onAddProject}
+                  month={this.state.month}
+                  year={this.state.year}
+                />
+              )}
+            />
+          </Switch>
+        </main>
+      </Router>
+    );
+  }
 }
 
 export default connect(
-    state => ({
-        testStore: state
-    }),
-    dispatch => ({
-        onAddUser: (user) => {
-            dispatch({type: 'ADD_USER', payload: user})
-        },
-        onAddProject: (project) => {
-            dispatch({type: 'ADD_PROJECT', payload: project})
-        }
-    })
+  state => ({
+    testStore: state
+  }),
+  dispatch => ({
+    onAddUser: (user) => {
+      dispatch({type: 'ADD_USER', payload: user})
+    },
+    onAddProject: (project) => {
+      dispatch({type: 'ADD_PROJECT', payload: project})
+    }
+  })
 )(App);
