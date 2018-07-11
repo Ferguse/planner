@@ -1,24 +1,26 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+// source
+import navigation from '../../source/navigation';
 
 //styled
-import Container from './Navigation.styled'
+import Container from './styled/Container';
+import Navigator from './styled/Navigator';
 
-const Title = (props) => (
+const Title = () => (
   <Container>
     <span>Planner</span>
     <nav>
-      <ul>
-        <li>
-          <div><NavLink to="/admin">Admin</NavLink></div>
-        </li>
-        <li>
-          <div><NavLink to="/projects">Projects</NavLink></div>
-        </li>
-        <li>
-          <div><NavLink to="/users">Staffs</NavLink></div>
-        </li>
-      </ul>
+      <Navigator>
+        {
+          navigation.map(item => (
+            <li>
+              <div><NavLink to={item.link}>{item.title}</NavLink></div>
+            </li>
+          ))
+        }
+      </Navigator>
     </nav>
   </Container>
 );
