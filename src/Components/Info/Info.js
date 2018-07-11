@@ -1,25 +1,21 @@
 import React, {PureComponent} from 'react';
+
+// source
 import monthDays from '../../source/getMonthDays';
 
 //styled
-import { Container, Header, Percent, InfoBox, Box, Calendar } from './Info.styled';
+import Container from './styled/Container';
+import InfoBox from './styled/InfoBox';
+import Box from './styled/Box';
+import Calendar from './styled/Calendar';
+import Header from './styled/Header';
 
 class Info extends PureComponent {
-  constructor(props) {
-    super();
-
-  }
 
   getActiveElement = (i) => {
     const now = new Date();
     const year = now.getFullYear();
     const month = this.props.month;
-    // console.log(this.props.project.get('workload').toJS())
-    // const start = new Date(this.props.project.get('workload').first().get('dates').get('start')).getTime();
-    // const end = new Date(this.props.project.get('workload').first().get('dates').first().get('end')).getTime();
-    // const currentDate = new Date(`${year}-${month + 1}-${i}`);
-    // return (currentDate.getTime() > start && currentDate.getTime() < end)
-
     const start = new Date(this.props.project.get('dates').first().get('start')).getTime();
     const end = new Date(this.props.project.get('dates').first().get('end')).getTime();
     const currentDate = new Date(`${year}-${month + 1}-${i}`);
