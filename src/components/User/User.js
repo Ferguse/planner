@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createSelector } from "reselect";
 
 // styled
 import Info from '../InfoUser/Info';
@@ -61,7 +60,7 @@ class User extends Component {
               .map(item => (
                 <Info
                   month={this.props.month}
-                  key={item.id}
+                  key={item.get('id')}
                   project={item}
                   user={this.props.user}
                   title={item.get('title')}/>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Project from '../Project/Project';
 import Header from '../Header/Header'
 
@@ -17,7 +17,7 @@ class Projects extends Component {
         <div>
           {
             this.props.projects.map(item => {
-              return <Project month={this.props.month} key={item.id} project={item}/>
+              return <Project month={this.props.month} key={item.get('id')} project={item}/>
             })
           }
         </div>

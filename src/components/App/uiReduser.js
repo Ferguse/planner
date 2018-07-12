@@ -1,4 +1,4 @@
-import Immutable, { fromJS, List, Map, Set } from 'immutable';
+import Immutable, { Map } from 'immutable';
 
 // sources
 import users from '../../source/users';

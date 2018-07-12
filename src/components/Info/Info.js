@@ -32,7 +32,8 @@ class Info extends PureComponent {
       </Header>
       <Calendar>
         {
-          monthDays(this.props.year, this.props.month).map(i => <Box isActive={this.getActiveElement(i)} /> )
+          monthDays(this.props.year, this.props.month)
+            .map((item, i) => <Box isActive={this.getActiveElement(item)} key={item} /> )
         }
       </Calendar>
     </Container>

@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import User from '../User/User';
 import Header from '../Header/Header'
 
-// selectors
-import { createSelector } from "reselect";
-
 // styled
 import Container from './styled/Container';
 
@@ -43,7 +40,7 @@ class Users extends Component {
             users.toList().map(item => {
               return <User
                 month={this.props.month}
-                key={item.id}
+                key={item}
                 user={item}
                 projects={this.props.projects}
               />

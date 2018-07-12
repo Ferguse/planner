@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { all, call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import * as api from '../../api';
 import * as actions from './entitiesActions';

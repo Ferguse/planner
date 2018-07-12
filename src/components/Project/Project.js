@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {createSelector} from "reselect";
-import {connect} from "react-redux";
+import { createSelector } from "reselect";
+import { connect } from "react-redux";
 
 // styled
 import Info from '../Info/Info';
@@ -9,7 +9,7 @@ import Name from './styled/Name';
 import Data from './styled/Data';
 
 // selectors
-import {numberShowWeekSelector, projectSelector, userSelector} from "../../Selectors/selectors";
+import { numberShowWeekSelector, projectSelector, userSelector } from "../../Selectors/selectors";
 
 
 class Project extends Component {

@@ -41,7 +41,7 @@ class Header extends Component {
          {
            monthDays(this.props.year, this.props.month)
              .map(item => (
-               <Box isLine={((item - 1) % 5 === 0)}>
+               <Box isLine={((item - 1) % 5 === 0)} key={item}>
                  {item}
                </Box>
                )

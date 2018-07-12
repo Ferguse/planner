@@ -42,7 +42,7 @@ const Main = ({
 Main.propTypes = {
   item: PropTypes.object.isRequired,
   i: PropTypes.number.isRequired,
-  isActive: PropTypes.bool.isRequired,
+  isActive: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
   user: PropTypes.number.isRequired,

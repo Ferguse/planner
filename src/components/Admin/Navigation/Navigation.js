@@ -12,7 +12,7 @@ const Navigation = ({ handleClick, isActive, projects }) => (
         <Title
           onClick={handleClick.bind(null, i)}
           isActive={isActive === i}
-          key={i}
+          key={item.get('id')}
         >
           <button type='button'>
             <span>
@@ -26,7 +26,7 @@ const Navigation = ({ handleClick, isActive, projects }) => (
 )
 
 Navigation.propTypes = {
-  isActive: PropTypes.bool.isRequired,
+  isActive: PropTypes.number.isRequired,
   projects: PropTypes.object.isRequired,
   handleClick: PropTypes.func.isRequired
 };

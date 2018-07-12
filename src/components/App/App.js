@@ -38,20 +38,21 @@ class App extends Component {
   changeMonth(bool) {
     let month = this.state.month;
     let year = this.state.year;
+    let newYear;
     month = (bool) ? month + 1 : month - 1;
 
     if (month > 11) {
       month = 0;
-      year = year + 1;
+      newYear = year + 1;
     }
 
     if (month < 0) {
       month = 11;
-      year = year - 1;
+      newYear = year - 1;
     }
     this.setState({
       month: month,
-      year: month
+      year: newYear
     });
   }
 

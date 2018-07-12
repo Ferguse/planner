@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // styled
 import User from './styled/User';
 import UserLine from './styled/UserLine';
-import UserPannel from '../UserPannel/UserPannel';
 
 const UserContent = ({ i, user, handleChangeUser, workload, index, handleChangeUserDate, handleDeleteUser }) => (
   <User

@@ -2,7 +2,6 @@ import React from 'react';
 
 // styled
 import UserItem from './styled/UserItem';
-import UserContent from '../UserContent/UserContent';
 import PropTypes from 'prop-types';
 
 const UsersList = ({ item, handleClickUser, user }) => (

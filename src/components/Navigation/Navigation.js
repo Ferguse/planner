@@ -14,8 +14,8 @@ const Title = () => (
     <nav>
       <Navigator>
         {
-          navigation.map(item => (
-            <li>
+          navigation.map((item, i) => (
+            <li key={i}>
               <div><NavLink to={item.link}>{item.title}</NavLink></div>
             </li>
           ))
