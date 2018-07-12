@@ -1,9 +1,5 @@
 import React, {Component } from 'react';
 import { createSelector } from 'reselect';
-import { connect } from 'react-redux';
-
-// selectors
-import { projectSelector } from '../../Selectors/selectors';
 
 // reducers
 import {
@@ -124,10 +120,4 @@ class Admin extends Component {
   }
 }
 
-const selector = createSelector(
-  projectSelector,
-  (projects) => ({
-    projects
-  })
-);
-export default connect(selector)(Admin);
+export default Admin;

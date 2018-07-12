@@ -1,24 +1,46 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Raven from 'raven-js';
+import { render } from 'react-dom';
+import { createLogger } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { applyMiddleware, createStore } from 'redux';
+import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import {Provider} from 'react-redux';
-import getDate from "./redux/reducers";
-import {createStore} from "redux";
 
-// components
-import App from './Components/App';
+import App from './components/App';
+import Saga from './components/App/saga';
+import reducer from './components/App/reducer';
 
-// serviceWorker
-import registerServiceWorker from './registerServiceWorker';
+const history = createBrowserHistory();
+const routerMiddleware = createRouterMiddleware(history);
 
+const sagaMiddleware = createSagaMiddleware({
+  onError: error => Raven.captureException(error)
+});
 
-// const store = createStore(getDate);
-const store = createStore(
-  getDate,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('root'));
-registerServiceWorker();
+const middlewares = [routerMiddleware, sagaMiddleware];
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(createLogger({ collapsed: true }));
+}
+
+const store = createStore(reducer, applyMiddleware(...middlewares));
+sagaMiddleware.run(Saga);
+
+const root = document.getElementById('root');
+
+render(<App history={history} store={store} />, root);
+
+if (module.hot) {
+  module.hot.accept('./components/App/reducer', () => {
+    // eslint-disable-next-line
+    const nextRootReducer = require('./components/App/reducer');
+    store.replaceReducer(nextRootReducer);
+  });
+
+  module.hot.accept('./components/App', () => {
+    // eslint-disable-next-line
+    const NextApp = require('./components/App').default;
+    render(<NextApp history={history} store={store} />, root);
+  });
+}

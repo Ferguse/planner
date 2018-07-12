@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { createSelector } from "reselect";
-import { connect } from "react-redux";
 
 // styled
 import Info from '../InfoUser/Info';
 
-// selectors
-import { numberShowWeekSelector, projectSelector } from "../../Selectors/selectors";
 
 // components
 import Header from './styled/Header';
@@ -76,12 +73,4 @@ class User extends Component {
   }
 }
 
-const selector = createSelector(
-  projectSelector,
-  numberShowWeekSelector,
-  (projects, numberShowWeek) => ({
-    projects,
-    numberShowWeek
-  })
-);
-export default connect(selector)(User);
+export default User;

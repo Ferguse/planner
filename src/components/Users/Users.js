@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 
 // container
 import User from '../User/User';
 import Header from '../Header/Header'
 
 // selectors
-import { projectSelector } from '../../Selectors/selectors';
 import { createSelector } from "reselect";
 
 // styled
 import Container from './styled/Container';
 
 class Users extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       inputValue: 'Неизвестный пользователь',
       inputColorValue: '',
@@ -33,7 +31,6 @@ class Users extends Component {
       .map(i => i.get('workload').map(i => i.get('user')))
       .reduce((a, b) => a.concat(b))
       .toSet();
-
     return (
       <Container>
         <Header
@@ -43,11 +40,12 @@ class Users extends Component {
         />
         <div className="main__content">
           {
-            users.map(item => {
+            users.toList().map(item => {
               return <User
                 month={this.props.month}
                 key={item.id}
                 user={item}
+                projects={this.props.projects}
               />
             })
           }
@@ -57,10 +55,4 @@ class Users extends Component {
   }
 }
 
-const selector = createSelector(
-  projectSelector,
-  (projects) => ({
-    projects
-  })
-);
-export default connect(selector)(Users);
+export default Users;
