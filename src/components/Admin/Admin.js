@@ -92,7 +92,6 @@ class Admin extends Component {
       <Container>
        <Navigation
          projects={projects}
-         handleClick={this.handleClick}
          isActive={isActive}
        />
         {

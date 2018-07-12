@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 // styled
 import Container from './styled/Container';
 import Title from './styled/Title';
+import {changeProject} from "../../App/uiActions";
 
-const Navigation = ({ handleClick, isActive, projects }) => (
+const Navigation = ({ changeProject, selectedProject, projects }) => (
   <Container>
     {
       projects.map((item, i) => (
         <Title
-          onClick={handleClick.bind(null, i)}
-          isActive={isActive === i}
+          onClick={() => changeProject(item.get('id'))}
+          isActive={selectedProject === item.get('id')}
           key={item.get('id')}
         >
           <button type='button'>
@@ -26,9 +27,9 @@ const Navigation = ({ handleClick, isActive, projects }) => (
 )
 
 Navigation.propTypes = {
-  isActive: PropTypes.number.isRequired,
+  selectedProject: PropTypes.number.isRequired,
   projects: PropTypes.object.isRequired,
-  handleClick: PropTypes.func.isRequired
+  changeProject: PropTypes.func.isRequired
 };
 
 export default Navigation;

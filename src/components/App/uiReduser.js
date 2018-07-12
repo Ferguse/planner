@@ -11,7 +11,9 @@ import * as uiActions from './uiActions';
 // INITIAL STATE
 export const initialState = Map({
   users: Immutable.fromJS(users),
-  projects: Immutable.fromJS(projects)
+  projects: Immutable.fromJS(projects),
+  selectedUser: null,
+  selectedProject: null
 });
 
 // REDUCER
@@ -55,6 +57,9 @@ export default (state = initialState, { type, payload }) => {
     }
     case uiActions.USER_DELETED: {
       return state;
+    }
+    case uiActions.SELECTED_PROJECT_CHANGED: {
+      return state.set('selectedProject', payload)
     }
 
     default:

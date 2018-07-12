@@ -48,6 +48,12 @@ export const deleteProject = date => ({
   payload: date
 });
 
+export const SELECTED_PROJECT_CHANGED = '@@ui/SELECTED_PROJECT_CHANGED';
+export const changeProject = date => ({
+  type: SELECTED_PROJECT_CHANGED,
+  payload: date
+});
+
 // users actions
 
 export const USER_NAME_CHANGED = '@@ui/USER_NAME_CHANGED';

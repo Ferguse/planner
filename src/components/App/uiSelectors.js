@@ -6,3 +6,11 @@ export const projectsSelector = createImmutableSelector(uiSelector, ui => {
   return ui.get('projects');
 });
 
+export const selectedProjectSelector = createImmutableSelector(uiSelector, ui => {
+  return ui.get('selectedProject');
+});
+
+export const selectedUserSelector = createImmutableSelector(uiSelector, ui => {
+  return ui.get('selectedUser');
+});
+
