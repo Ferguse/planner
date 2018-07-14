@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import showContent from '../../styled/showContent.keyframe';
+import showContent from '../../../styled/showContent.keyframe';
 
 export default styled.div`
-  display: ${({ user }) => ((user) ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   opacity: 0;
   margin-top: 20px;

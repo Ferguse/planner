@@ -12,8 +12,8 @@ import * as uiActions from './uiActions';
 export const initialState = Map({
   users: Immutable.fromJS(users),
   projects: Immutable.fromJS(projects),
-  selectedUser: null,
-  selectedProject: null
+  selectedUser: '001',
+  selectedProject: '000'
 });
 
 // REDUCER
@@ -32,34 +32,46 @@ export default (state = initialState, { type, payload }) => {
       return state;
     }
     case uiActions.TITLE_PROJECT_CHANGED: {
-      return state;
+      const selectedProject = state.get('selectedProject');
+      return state.setIn(['projects', selectedProject , 'title'], payload);
     }
     case uiActions.CONTENT_PROJECT_CHANGED: {
-      return state;
+      const selectedProject = state.get('selectedProject');
+      return state.setIn(['projects', selectedProject , 'content'], payload);
     }
     case uiActions.COLOR_PROJECT_CHANGED: {
-      return state;
+      const selectedProject = state.get('selectedProject');
+      return state.setIn(['projects', selectedProject , 'color'], payload);
     }
     case uiActions.PROJECT_DELETED: {
-      return state;
+      const selectedProject = state.get('selectedProject');
+      return state.deleteIn(['projects', selectedProject]);
     }
     case uiActions.USER_NAME_CHANGED: {
-      return state;
+      const selectedUser = state.get('selectedUser');
+      return state.setIn(['users', selectedUser, 'name'], payload);
     }
     case uiActions.USER_PERCENT_CHANGED: {
-      return state;
+      const selectedUser = state.get('selectedUser');
+      return state.setIn(['users', selectedUser, 'percent'], payload);
     }
     case uiActions.USER_START_WORK_CHANGED: {
-      return state;
+      const selectedUser = state.get('selectedUser');
+      return state.setIn(['users', selectedUser, 'dates', 0, 'start'], payload);
     }
     case uiActions.USER_END_WORK_CHANGED: {
-      return state;
+      const selectedUser = state.get('selectedUser');
+      return state.setIn(['users', selectedUser, 'dates', 0, 'end'], payload);
     }
     case uiActions.USER_DELETED: {
-      return state;
+      const selectedUser = state.get('selectedUser');
+      return state.deleteIn(['users', selectedUser]);
     }
     case uiActions.SELECTED_PROJECT_CHANGED: {
       return state.set('selectedProject', payload)
+    }
+    case uiActions.SELECTED_USER_CHANGED: {
+      return state.set('selectedUser', payload)
     }
 
     default:

@@ -5,7 +5,7 @@ export default styled.div`
   padding: 2rem 30%;
   border-bottom: 1px solid #eee;
   width: 100%;
-  display: ${({ isActive }) => ((isActive) ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   opacity: 0;
   margin-top: 20px;

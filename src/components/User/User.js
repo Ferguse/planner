@@ -51,19 +51,20 @@ class User extends Component {
       <div>
         <Header>
           <Name>
-            <p>{this.props.user}</p>
+            <p>{this.props.user.get('name')}</p>
           </Name>
         </Header>
         <Data>
           {
             this.props.projects
-              .map(item => (
+              .toList()
+              .map(project => (
                 <Info
                   month={this.props.month}
-                  key={item.get('id')}
-                  project={item}
+                  key={project.get('id')}
+                  project={project}
                   user={this.props.user}
-                  title={item.get('title')}/>
+                  title={project.get('title')}/>
               ))
           }
         </Data>

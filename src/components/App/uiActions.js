@@ -85,3 +85,9 @@ export const deleteUser = date => ({
   type: USER_DELETED,
   payload: date
 });
+
+export const SELECTED_USER_CHANGED = '@@ui/SELECTED_USER_CHANGED';
+export const changeUser = date => ({
+  type: SELECTED_USER_CHANGED,
+  payload: date
+});

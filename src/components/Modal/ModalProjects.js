@@ -1,6 +1,6 @@
 import React from 'react';
 import './Modal.css';
-import {userSelector} from "../../Selectors/selectors";
+// import {userSelector} from "../../Selectors/selectors";
 import {createSelector} from "reselect";
 import {connect} from "react-redux";
 

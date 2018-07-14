@@ -16,8 +16,16 @@ class Info extends PureComponent {
     const now = new Date();
     const year = now.getFullYear();
     const month = this.props.month;
-    const start = new Date(this.props.project.get('dates').first().get('start')).getTime();
-    const end = new Date(this.props.project.get('dates').first().get('end')).getTime();
+    const start = new Date(this
+      .props
+      .user
+      .getIn(['workload', this.props.project.get('id'), 'dates', 0, 'start']))
+      .getTime();
+    const end = new Date(this
+      .props
+      .user
+      .getIn(['workload', this.props.project.get('id'), 'dates', 0, 'end']))
+      .getTime();
     const currentDate = new Date(`${year}-${month + 1}-${i}`);
     return (currentDate.getTime() > start && currentDate.getTime() < end)
   }
@@ -27,7 +35,7 @@ class Info extends PureComponent {
       <Container>
       <Header>
         <InfoBox>
-          <span>{this.props.project.get('user')}</span>
+          <span>{this.props.user.get('name')}</span>
         </InfoBox>
       </Header>
       <Calendar>

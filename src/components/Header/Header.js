@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import { createSelector } from "reselect";
-import { connect } from "react-redux";
-
-// selectors
-import { numberShowWeekSelector } from "../../Selectors/selectors";
 
 // source
 import monthDays from '../../source/getMonthDays';
@@ -53,10 +48,4 @@ class Header extends Component {
   }
 }
 
-const selector = createSelector(
-  numberShowWeekSelector,
-  (numberShowWeek) => ({
-    numberShowWeek
-  })
-);
-export default connect(selector)(Header);
+export default Header;

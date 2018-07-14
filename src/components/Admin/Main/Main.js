@@ -5,51 +5,18 @@ import PropTypes from 'prop-types';
 import Container from './styled/Container';
 
 // components
-import Project from '../Project';
-import UserPannel from '../UserPannel';
+import ProjectPanel from '../ProjectPanel';
+import UserPanel from '../UserPanel';
 
-const Main = ({
-                item,
-                i,
-                isActive,
-                handleChange,
-                handleDelete,
-                user,
-                handleChangeUser,
-                handleChangeUserDate,
-                handleDeleteUser,
-                handleClickUser
-}) => (
-  <Container isActive={isActive === i}>
-    <Project
-      item={item}
-      i={i}
-      handleChange={handleChange}
-      handleDelete={handleDelete}
-    />
-    <UserPannel
-      item={item}
-      user={user}
-      handleClickUser={handleClickUser}
-      handleChangeUser={handleChangeUser}
-      handleChangeUserDate={handleChangeUserDate}
-      handleDeleteUser={handleDeleteUser}
-      i={i}
-     />
+const Main = ({ project }) => (
+  <Container>
+    <ProjectPanel project={project} />
+    <UserPanel project={project} />
   </Container>
 );
 
 Main.propTypes = {
-  item: PropTypes.object.isRequired,
-  i: PropTypes.number.isRequired,
-  isActive: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired,
-  user: PropTypes.number.isRequired,
-  handleChangeUser: PropTypes.func.isRequired,
-  handleChangeUserDate: PropTypes.func.isRequired,
-  handleDeleteUser: PropTypes.func.isRequired,
-  handleClickUser: PropTypes.func.isRequired
+  project: PropTypes.object.isRequired,
 };
 
 export default Main;

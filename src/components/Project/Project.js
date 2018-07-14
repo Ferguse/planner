@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import { createSelector } from "reselect";
-import { connect } from "react-redux";
 
 // styled
 import Info from '../Info/Info';
 import Header from './styled/Header';
 import Name from './styled/Name';
 import Data from './styled/Data';
-
-// selectors
-import { numberShowWeekSelector, projectSelector, userSelector } from "../../Selectors/selectors";
-
 
 class Project extends Component {
   getColor = (num) => {
@@ -35,26 +29,33 @@ class Project extends Component {
   }
 
   render() {
+    const {
+      project,
+      users,
+      month
+    } = this.props;
     return (
       <div>
         <Header>
           <Name>
             <p
-              style={{background: this.props.project.get('color')}}
+              style={{background: project.get('color')}}
             >
-              {this.props.project.get('title')}
+              {project.get('title')}
             </p>
           </Name>
         </Header>
         <Data>
           {
-            this.props.project.get('workload')
-              .map((item, i) => (
+            users
+              .toList()
+              .map((user, i) => (
                 <Info
-                  month={this.props.month}
-                  key={i} project={item}
-                  user={item.get('user')}
-                  title={this.props.project.get('title')}
+                  month={month}
+                  key={i}
+                  user={user}
+                  project={project}
+                  title={project.get('title')}
                 />
               ))
           }
@@ -64,14 +65,4 @@ class Project extends Component {
   }
 }
 
-const selector = createSelector(
-  projectSelector,
-  userSelector,
-  numberShowWeekSelector,
-  (projects, users, numberShowWeek) => ({
-    projects,
-    users,
-    numberShowWeek
-  })
-);
-export default connect(selector)(Project);
+export default Project;

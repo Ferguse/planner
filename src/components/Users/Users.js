@@ -24,10 +24,12 @@ class Users extends Component {
   }
 
   render() {
-    let users = this.props.projects
-      .map(i => i.get('workload').map(i => i.get('user')))
-      .reduce((a, b) => a.concat(b))
-      .toSet();
+    // let users = this
+    //   .props
+    //   .projects
+    //   .map(i => i.get('workload').map(i => i.get('user')))
+    //   .reduce((a, b) => a.concat(b))
+    //   .toSet();
     return (
       <Container>
         <Header
@@ -37,7 +39,7 @@ class Users extends Component {
         />
         <div className="main__content">
           {
-            users.toList().map(item => {
+            this.props.users.toList().map(item => {
               return <User
                 month={this.props.month}
                 key={item}

@@ -15,20 +15,13 @@ class Info extends PureComponent {
     const now = new Date();
     const year = now.getFullYear();
     const month = this.props.month;
-
-    const start =
-      new Date(this.props.project.get('workload')
-        .first()
-        .get('dates')
-        .first()
-        .get('start'))
-        .getTime();
-    const end =
-      new Date(this.props.project.get('workload')
-        .first()
-        .get('dates')
-        .first()
-        .get('end'))
+    const start = new Date(this.props
+      .user
+      .getIn(['workload', this.props.project.get('id'), 'dates', 0, 'start']))
+      .getTime();
+    const end = new Date(this.props
+      .user
+      .getIn(['workload', this.props.project.get('id'), 'dates', 0, 'end']))
         .getTime();
     const currentDate = new Date(`${year}-${month + 1}-${i}`);
     return (currentDate.getTime() > start && currentDate.getTime() < end)

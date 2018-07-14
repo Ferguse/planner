@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
-import Project from '../Project/Project';
-import Header from '../Header/Header'
+import Project from '../Project';
+import Header from '../Header'
 
 //styled
 import { Container } from './Projects.styled';
 
 class Projects extends Component {
   render() {
+    const {
+      month,
+      year,
+      changeMonth,
+      users,
+      projects,
+      selectedProject
+    } = this.props;
+
     return (
       <Container>
         <Header
-          month={this.props.month}
-          year={this.props.year}
-          changeMonth={this.props.changeMonth}
+          month={month}
+          year={year}
+          changeMonth={changeMonth}
         />
         <div>
           {
-            this.props.projects.map(item => {
-              return <Project month={this.props.month} key={item.get('id')} project={item}/>
+            projects
+              .toList()
+              .map(project => {
+              return (
+                <Project
+                  month={month}
+                  key={project.get('id')}
+                  project={project}
+                  users={users}
+                  selectedProject={selectedProject}
+                />
+              )
             })
           }
         </div>

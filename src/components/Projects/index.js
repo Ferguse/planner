@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import createImmutableSelector from 'create-immutable-selector';
 
 // eslint-disable-next-line max-len
-import { projectsSelector } from '../App/uiSelectors';
+import { projectsSelector, usersSelector, selectedProjectSelector } from '../App/uiSelectors';
 import {
   changeDateMonth,
   selectedDay,
@@ -15,8 +15,12 @@ import Projects from './Projects';
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
-  projects => ({
-    projects
+  usersSelector,
+  selectedProjectSelector,
+  (projects, users, selectedProject) => ({
+    projects,
+    users,
+    selectedProject
   })
 );
 

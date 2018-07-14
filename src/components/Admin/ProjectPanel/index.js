@@ -5,31 +5,31 @@ import createImmutableSelector from 'create-immutable-selector';
 // eslint-disable-next-line max-len
 import {
   projectsSelector,
-  usersSelector
-} from '../App/uiSelectors';
+  selectedProjectSelector
+} from '../../App/uiSelectors';
 import {
-  changeDateMonth,
-  selectedDay,
-  selectProject,
-  selectUser
-} from '../App/uiActions';
+  changeTitleProject,
+  changeContentProject,
+  changeColorProject,
+  deleteProject
+} from '../../App/uiActions';
 
-import Users from './Users';
+import ProjectPanel from './ProjectPanel';
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
-  usersSelector,
-  (projects, users) => ({
+  selectedProjectSelector,
+  (projects, selectedProject) => ({
     projects,
-    users
+    selectedProject
   })
 );
 
 const mapDispatchToProps = {
-  changeDateMonth,
-  selectedDay,
-  selectProject,
-  selectUser
+  changeTitleProject,
+  changeContentProject,
+  changeColorProject,
+  deleteProject,
 };
 
 const withConnect = connect(
@@ -40,4 +40,4 @@ const withConnect = connect(
 const enhance = compose(
   withConnect
 );
-export default enhance(Users);
+export default enhance(ProjectPanel);

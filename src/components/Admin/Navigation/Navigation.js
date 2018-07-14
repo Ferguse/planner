@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 // styled
 import Container from './styled/Container';
 import Title from './styled/Title';
-import {changeProject} from "../../App/uiActions";
 
 const Navigation = ({ changeProject, selectedProject, projects }) => (
   <Container>
     {
-      projects.map((item, i) => (
+      projects.toList().map((item, i) => (
         <Title
           onClick={() => changeProject(item.get('id'))}
           isActive={selectedProject === item.get('id')}
@@ -27,7 +26,7 @@ const Navigation = ({ changeProject, selectedProject, projects }) => (
 )
 
 Navigation.propTypes = {
-  selectedProject: PropTypes.number.isRequired,
+  selectedProject: PropTypes.string.isRequired,
   projects: PropTypes.object.isRequired,
   changeProject: PropTypes.func.isRequired
 };

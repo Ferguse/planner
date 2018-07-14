@@ -6,38 +6,33 @@ import createImmutableSelector from 'create-immutable-selector';
 import {
   projectsSelector,
   selectedProjectSelector,
-  selectedUserSelector
-} from '../App/uiSelectors';
+  selectedUserSelector,
+  usersSelector
+} from '../../../App/uiSelectors';
 import {
-  changeTitleProject,
-  changeContentProject,
-  changeColorProject,
-  deleteProject,
   changeUserName,
   changeUserPercent,
   changeUserStartWork,
   changeUserEndWork,
   deleteUser
-} from '../App/uiActions';
+} from '../../../App/uiActions';
 
-import Admin from './Admin';
+import UserContent from './UserContent';
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
   selectedProjectSelector,
   selectedUserSelector,
-  (projects, selectedProject, selectedUser) => ({
+  usersSelector,
+  (projects, selectedProject, selectedUser, users) => ({
     projects,
     selectedProject,
-    selectedUser
+    selectedUser,
+    users
   })
 );
 
 const mapDispatchToProps = {
-  changeTitleProject,
-  changeContentProject,
-  changeColorProject,
-  deleteProject,
   changeUserName,
   changeUserPercent,
   changeUserStartWork,
@@ -53,4 +48,5 @@ const withConnect = connect(
 const enhance = compose(
   withConnect
 );
-export default enhance(Admin);
+
+export default enhance(UserContent);
