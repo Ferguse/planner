@@ -8,4 +8,5 @@ export default styled.div`
   margin-top: 20px;
   animation: ${showContent} 1s ease-in-out;
   animation-fill-mode: forwards;
+  width: 100%;
 `;

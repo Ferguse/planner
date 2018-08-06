@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 // styled
 import User from './styled/User';
 import UserLine from './styled/UserLine';
+import Delete from '../../styled/Delete';
+
+// icon
+import trash from '../../../../assets/icons/trash.png';
 
 class UserContent extends PureComponent {
   changeUserNameHandle = e =>
@@ -68,7 +72,13 @@ class UserContent extends PureComponent {
             onChange={this.changeUserEndWorkHandle}
           />
         </UserLine>
-        <button onClick={this.deleteUserHandle} type='button'> Delete user </button>
+        <Delete
+          onClick={this.deleteUserHandle}
+          type='button'
+          color='darkred'
+        >
+          <img src={trash} alt='trash' />
+        </Delete>
       </User>
     )
   }

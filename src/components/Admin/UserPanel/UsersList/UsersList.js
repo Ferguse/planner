@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // styled
 import UserItem from './styled/UserItem';
-import PropTypes from 'prop-types';
 
 const UsersList = ({ project, selectedUser, users, changeUser }) => (
   <div>

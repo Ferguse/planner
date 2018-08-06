@@ -2,18 +2,16 @@ import styled from 'styled-components';
 
 export default styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100vw;
   flex-wrap: wrap;
   background: #ffffff;
-  padding: 20px 10%;
+  padding: 20px;
+  position: relative;
   
-  >div:first-child {
-    width: 10%;
-    border-right: 1px solid #6062fd;
-  }
-  
-  >div:last-child {
-    width: 70%;
+  div {
+    width: 100%;
   }
 `;

@@ -8,14 +8,23 @@ import UserContent from './UserContent';
 // styled
 import Container from './styled/Container';
 import Users from './styled/Users';
+import Button from '../styled/Button';
 
 const UserPanel = (
-  { project }) => (
+  { project, handleShowUserPanel }) => (
   <Container>
-    <UsersList project={project} />
-    <Users>
-      <UserContent />
-    </Users>
+    <div>
+      <UsersList project={project} />
+      <Users>
+        <UserContent />
+      </Users>
+    </div>
+    <Button
+      onClick={handleShowUserPanel}
+      color='green'
+    >
+      EDIT PROJECTS
+    </Button>
   </Container>
 );
 

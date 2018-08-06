@@ -3,10 +3,11 @@ import showContent from '../../styled/showContent.keyframe';
 
 export default styled.div`
   position: absolute;
-  height: calc(100vh - 100px);
+  height: 100vh;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  width: 200vw;
+  width: 100%;
   display: flex;
+  padding: 60px 20px 20px;
 `;

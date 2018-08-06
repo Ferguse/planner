@@ -9,17 +9,26 @@ import Inner from './styled/Inner';
 import ProjectPanel from '../ProjectPanel';
 import UserPanel from '../UserPanel';
 
-const Main = ({ project }) => (
+const Main = ({ project, isShowUser, handleShowUserPanel }) => (
   <Container>
     <Inner>
-      <ProjectPanel project={project} />
-      <UserPanel project={project} />
+      {
+        (!isShowUser) ?
+          <ProjectPanel
+            project={project}
+            handleShowUserPanel={handleShowUserPanel}
+          /> :
+          <UserPanel
+            project={project}
+            handleShowUserPanel={handleShowUserPanel}
+          />
+      }
     </Inner>
   </Container>
 );
 
 Main.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.object.isRequired
 };
 
 export default Main;

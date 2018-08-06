@@ -23,7 +23,7 @@ const Navigation = ({ changeProject, selectedProject, projects }) => (
       ))
     }
   </Container>
-)
+);
 
 Navigation.propTypes = {
   selectedProject: PropTypes.string.isRequired,

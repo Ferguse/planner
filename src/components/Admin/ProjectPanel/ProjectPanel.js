@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 // styled
 import Box from './styled/Box';
 import Container from './styled/Container';
-import PropTypes from 'prop-types';
+import Button from '../styled/Button';
+import Delete from '../styled/Delete';
+
+// icon
+import trash from '../../../assets/icons/trash.png';
 
 class ProjectPanel extends PureComponent {
-  state = {
-    activePanel: false
-  }
   handleChangeTitle = event =>
     this.props.changeTitleProject(event.target.value);
 
@@ -20,32 +22,40 @@ class ProjectPanel extends PureComponent {
 
   handleDeleteProject = () =>
     this.props.deleteProject();
-  handleShowUserPanel = () =>
-    this.setState(({ activePanel }) => ({ activePanel: !activePanel }));
 
   render() {
-    const { project } = this.props;
+    const { project, handleShowUserPanel } = this.props;
     return (
       <Container>
-        <Box>
-          <label htmlFor="title">Title</label>
-          <input onChange={this.handleChangeTitle} id='title' type="text" value={project.get('title')}/>
-        </Box>
-        <Box>
-          <label htmlFor="content">Content</label>
-          <textarea onChange={this.handleChangeContent} rows='5' id='content' type="text" value={project.get('content')}/>
-        </Box>
-        <Box>
-          <label htmlFor="color">Color</label>
-          <input onChange={this.handleChangeColor} id='color' type="text" value={project.get('color')}/>
-        </Box>
-        <button type='button' onClick={this.handleDeleteProject}>Delete project</button>
-        <Box>
-          <p>Users</p>
-        </Box>
-        <button onClick={this.handleShowUserPanel}></button>
+        <div>
+          <Box>
+            <label htmlFor='title'>Title</label>
+            <input onChange={this.handleChangeTitle} id='title' type='text' value={project.get('title')}/>
+          </Box>
+          <Box>
+            <label htmlFor='content'>Content</label>
+            <textarea onChange={this.handleChangeContent} rows='5' id='content' type='text' value={project.get('content')}/>
+          </Box>
+          <Box>
+            <label htmlFor='color'>Color</label>
+            <input onChange={this.handleChangeColor} id='color' type='text' value={project.get('color')}/>
+          </Box>
+          <Delete
+            type='button'
+            onClick={this.handleDeleteProject}
+            color='darkred'
+          >
+            <img src={trash} alt='trash' />
+          </Delete>
+        </div>
+        <Button
+          onClick={handleShowUserPanel}
+          color='green'
+        >
+          EDIT USERS
+        </Button>
       </Container>
-    )
+    );
   }
 }
 
