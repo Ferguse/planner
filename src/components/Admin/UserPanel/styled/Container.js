@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 100vw;
   flex-wrap: wrap;
   background: #ffffff;
   padding: 20px 10%;

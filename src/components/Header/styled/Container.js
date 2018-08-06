@@ -6,6 +6,6 @@ export default styled.div`
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 15px;
   position: fixed;
-  top: 60px;
+  top: 50px;
   background: white;
 `;

@@ -8,6 +8,9 @@ export default styled.div`
   
   li {
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   
   a {

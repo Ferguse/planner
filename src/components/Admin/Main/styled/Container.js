@@ -4,13 +4,14 @@ import showContent from '../../styled/showContent.keyframe';
 export default styled.div`
   padding: 2rem 30%;
   border-bottom: 1px solid #eee;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   opacity: 0;
   margin-top: 20px;
   animation: ${showContent} 1s ease-in-out;
   animation-fill-mode: forwards;
+  position: relative;
   
    button {
     border: none;

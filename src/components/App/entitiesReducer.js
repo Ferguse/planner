@@ -1,14 +1,12 @@
 import { fromJS } from 'immutable';
 
 // entities types
-import {
-  SOURCES_FETCH_SUCCESS,
-} from './entitiesActions';
+import { SOURCES_FETCH_SUCCESS } from './entitiesActions';
 
 export const initialState = fromJS({
   projects: {},
   users: {},
-  user: {},
+  user: {}
 });
 
 const reducer = (state = initialState, { type, payload }) => {

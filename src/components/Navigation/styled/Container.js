@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
   width: 100%;
   height: 50px;
-  background-color: #6062fd;
+  background-color: darkcyan;
   color: white;
   font-size: 2rem;
   text-transform: uppercase;
@@ -13,4 +13,6 @@ export default styled.div`
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
+  z-index: 100;
 `;

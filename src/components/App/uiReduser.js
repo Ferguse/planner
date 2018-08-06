@@ -4,7 +4,6 @@ import Immutable, { Map } from 'immutable';
 import users from '../../source/users';
 import projects from '../../source/projects';
 
-
 // actions
 import * as uiActions from './uiActions';
 
@@ -13,7 +12,16 @@ export const initialState = Map({
   users: Immutable.fromJS(users),
   projects: Immutable.fromJS(projects),
   selectedUser: '001',
-  selectedProject: '000'
+  selectedProject: '000',
+  user: Immutable.fromJS({
+    image: '../',
+    name: 'User',
+    surname: 'UserSurname',
+    mail: 'test@mail.com',
+    login: 'login',
+    password: 'password'
+  }),
+  accountActivePage: 'Profile'
 });
 
 // REDUCER
@@ -68,12 +76,33 @@ export default (state = initialState, { type, payload }) => {
       return state.deleteIn(['users', selectedUser]);
     }
     case uiActions.SELECTED_PROJECT_CHANGED: {
-      return state.set('selectedProject', payload)
+      return state.set('selectedProject', payload);
     }
     case uiActions.SELECTED_USER_CHANGED: {
-      return state.set('selectedUser', payload)
+      return state.set('selectedUser', payload);
     }
-
+    case uiActions.CURRENT_USER_CHANGE_AVATAR: {
+      return state.setIn(['user', 'image'], payload);
+    }
+    case uiActions.CURRENT_USER_CHANGE_NAME: {
+      return state.setIn(['user', 'name'], payload);
+    }
+    case uiActions.CURRENT_USER_CHANGE_SURNAME: {
+      console.log(payload)
+      return state.setIn(['user', 'surname'], payload);
+    }
+    case uiActions.CURRENT_USER_CHANGE_LOGIN: {
+      return state.setIn(['user', 'login'], payload);
+    }
+    case uiActions.CURRENT_USER_CHANGE_MAIL: {
+      return state.setIn(['user', 'mail'], payload);
+    }
+    case uiActions.CURRENT_USER_CHANGE_PASSWORD: {
+      return state.setIn(['user', 'password'], payload);
+    }
+    case uiActions.ACCOUNT_PAGE_CHANGED: {
+      return state.set('accountActivePage', payload);
+    }
     default:
       return state;
   }

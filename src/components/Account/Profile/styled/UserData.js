@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  width: 100vw;
+  width: 60%;
 `;

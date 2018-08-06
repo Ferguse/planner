@@ -6,6 +6,9 @@ import Container from './styled/Container';
 import PropTypes from 'prop-types';
 
 class ProjectPanel extends PureComponent {
+  state = {
+    activePanel: false
+  }
   handleChangeTitle = event =>
     this.props.changeTitleProject(event.target.value);
 
@@ -17,6 +20,8 @@ class ProjectPanel extends PureComponent {
 
   handleDeleteProject = () =>
     this.props.deleteProject();
+  handleShowUserPanel = () =>
+    this.setState(({ activePanel }) => ({ activePanel: !activePanel }));
 
   render() {
     const { project } = this.props;
@@ -38,6 +43,7 @@ class ProjectPanel extends PureComponent {
         <Box>
           <p>Users</p>
         </Box>
+        <button onClick={this.handleShowUserPanel}></button>
       </Container>
     )
   }

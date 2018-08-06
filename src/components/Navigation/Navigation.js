@@ -7,6 +7,7 @@ import navigation from '../../source/navigation';
 //styled
 import Container from './styled/Container';
 import Navigator from './styled/Navigator';
+import Account from './styled/Account';
 
 const Title = () => (
   <Container>
@@ -16,11 +17,14 @@ const Title = () => (
         {
           navigation.map((item, i) => (
             <li key={i}>
-              <div><NavLink to={item.link}>{item.title}</NavLink></div>
+              <NavLink to={item.link}>{item.title}</NavLink>
             </li>
           ))
         }
       </Navigator>
+      <Account>
+        <NavLink to='/account'>A</NavLink>
+      </Account>
     </nav>
   </Container>
 );

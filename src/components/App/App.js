@@ -16,6 +16,7 @@ import Admin from '../Admin';
 import Users from '../Users';
 import Projects from '../Projects';
 import Navigation from '../Navigation';
+import Account from '../Account';
 
 
 class App extends Component {
@@ -72,6 +73,13 @@ class App extends Component {
                     year={this.state.year}
                     changeMonth={this.changeMonth}
                   />
+                )}
+              />
+              <Route
+                exact
+                path="/account"
+                render={() => (
+                  <Account/>
                 )}
               />
               <Route

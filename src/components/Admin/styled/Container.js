@@ -6,6 +6,7 @@ export default styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  overflow-y: hidden;
   background: rgba(43,85,204,0.1);
 `;

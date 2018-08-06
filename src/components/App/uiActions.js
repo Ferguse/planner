@@ -91,3 +91,46 @@ export const changeUser = date => ({
   type: SELECTED_USER_CHANGED,
   payload: date
 });
+
+// Profile actions
+export const CURRENT_USER_CHANGE_AVATAR = '@@ui/CURRENT_USER_CHANGE_AVATAR';
+export const changeCurrentUserAvatar = date => ({
+  type: CURRENT_USER_CHANGE_AVATAR,
+  payload: date
+});
+
+export const CURRENT_USER_CHANGE_NAME = '@@ui/CURRENT_USER_CHANGE_NAME';
+export const changeCurrentUserName = date => ({
+  type: CURRENT_USER_CHANGE_NAME,
+  payload: date
+});
+
+export const CURRENT_USER_CHANGE_SURNAME = '@@ui/CURRENT_USER_CHANGE_SURNAME';
+export const changeCurrentUserSurname = date => ({
+  type: CURRENT_USER_CHANGE_SURNAME,
+  payload: date
+});
+
+export const CURRENT_USER_CHANGE_MAIL = '@@ui/CURRENT_USER_CHANGE_MAIL';
+export const changeCurrentUserMail = date => ({
+  type: CURRENT_USER_CHANGE_MAIL,
+  payload: date
+});
+
+export const CURRENT_USER_CHANGE_LOGIN = '@@ui/CURRENT_USER_CHANGE_LOGIN';
+export const changeCurrentUserLogin = date => ({
+  type: CURRENT_USER_CHANGE_LOGIN,
+  payload: date
+});
+
+export const CURRENT_USER_CHANGE_PASSWORD = '@@ui/CURRENT_USER_CHANGE_PASSWORD';
+export const changeCurrentUserPassword = date => ({
+  type: CURRENT_USER_CHANGE_PASSWORD,
+  payload: date
+});
+
+export const ACCOUNT_PAGE_CHANGED = '@@ui/ACCOUNT_PAGE_CHANGED';
+export const changeAccountPage = date => ({
+  type: ACCOUNT_PAGE_CHANGED,
+  payload: date
+});
