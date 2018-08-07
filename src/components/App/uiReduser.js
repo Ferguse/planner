@@ -14,7 +14,7 @@ export const initialState = Map({
   selectedUser: '001',
   selectedProject: '000',
   user: Immutable.fromJS({
-    image: '../',
+    image: null,
     name: 'User',
     surname: 'UserSurname',
     mail: 'test@mail.com',

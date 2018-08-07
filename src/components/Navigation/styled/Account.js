@@ -12,4 +12,15 @@ export default styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 `;

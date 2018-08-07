@@ -23,11 +23,17 @@ export default styled.button`
     &::after {
       position: absolute;
       content: '';
-      width: 0px;
-      height: 0px;
-      right: -50px;
+      width: 0;
+      height: 0;
+      right: ${({ direction }) => ((!direction) ? '-50px' : null)} ;
+      left: ${({ direction }) => ((!direction) ? null : '-50px')} ;
       border: 25px solid transparent;
       top: 0;
-      border-left: 25px solid ${({ color }) => color};
+      border-left: 
+        25px solid ${({ color, direction }) =>
+    (!direction ? color : 'transparent')};
+      border-right: 
+        25px solid ${({ color, direction }) =>
+    (direction ? color : 'transparent')};  
     }
-`
+`;

@@ -8,7 +8,8 @@ import UserData from './styled/UserData';
 import Box from './styled/Box';
 
 // icons
-import edit from '../../../assets/icons/edit.svg'
+import edit from '../../../assets/icons/edit.svg';
+import userIcon from '../../../assets/icons/user.jpg';
 
 // utils
 import validation from '../../../source/validation';
@@ -77,7 +78,7 @@ class Profile extends PureComponent {
         <Top>
           <Image>
             <label htmlFor='file_input'>
-              <img src={user.get('image')} alt='avatar'/>
+              <img src={userIcon} alt='avatar'/>
               <span>
                 {(user.get('image')) ? 'Change' : 'Load'} avatar
               </span>

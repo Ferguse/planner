@@ -22,6 +22,7 @@ const UserPanel = (
     <Button
       onClick={handleShowUserPanel}
       color='green'
+      direction
     >
       EDIT PROJECTS
     </Button>

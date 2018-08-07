@@ -9,6 +9,9 @@ import Container from './styled/Container';
 import Navigator from './styled/Navigator';
 import Account from './styled/Account';
 
+// icon
+import user from '../../assets/icons/user.jpg';
+
 const Title = () => (
   <Container>
     <span>Planner</span>
@@ -23,7 +26,9 @@ const Title = () => (
         }
       </Navigator>
       <Account>
-        <NavLink to='/account'>A</NavLink>
+        <NavLink to='/account'>
+          <img src={user} alt='user'/>
+        </NavLink>
       </Account>
     </nav>
   </Container>
