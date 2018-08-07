@@ -4,8 +4,17 @@ import styled from 'styled-components';
 import showContent from '../../styled/showContent.keyframe';
 
 export default styled.div`
-  position: relative;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
   animation: ${showContent} 1s ease-in-out;
   animation-fill-mode: forwards;
+  
+  p {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 `;

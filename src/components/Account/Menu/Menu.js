@@ -26,10 +26,16 @@ class Menu extends PureComponent {
             Settings
           </Item>
           <Item
-            onClick={this.handleClick('Help')}
-            isActivePage={this.props.accountActivePage === 'Help'}
+            onClick={this.handleClick('About')}
+            isActivePage={this.props.accountActivePage === 'About'}
           >
-            Help
+            About
+          </Item>
+          <Item
+            onClick={this.handleClick('License')}
+            isActivePage={this.props.accountActivePage === 'License'}
+          >
+            License
           </Item>
         </ul>
       </Container>
