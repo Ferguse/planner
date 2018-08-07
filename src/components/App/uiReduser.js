@@ -21,7 +21,15 @@ export const initialState = Map({
     login: 'login',
     password: 'password'
   }),
-  accountActivePage: 'Profile'
+  accountActivePage: 'Profile',
+  settings: Immutable.fromJS({
+    notification: false,
+    shortcut: false,
+    style: false,
+    windowStyle: {
+      color: 'darkcyan'
+    }
+  })
 });
 
 // REDUCER
@@ -102,6 +110,15 @@ export default (state = initialState, { type, payload }) => {
     }
     case uiActions.ACCOUNT_PAGE_CHANGED: {
       return state.set('accountActivePage', payload);
+    }
+    case uiActions.SETTINGS_NOTIFICATION_TOGGLED: {
+      return state.setIn(['settings', 'notification'], payload);
+    }
+    case uiActions.SETTINGS_SHORTCUT_TOGGLED: {
+      return state.setIn(['settings', 'shortcut'], payload);
+    }
+    case uiActions.SETTINGS_STYLE_TOGGLED: {
+      return state.setIn(['settings', 'style'], payload);
     }
     default:
       return state;

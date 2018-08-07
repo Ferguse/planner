@@ -16,3 +16,12 @@ export const selectedCurrentUserSelector =
 export const selectedAccountActivePageSelector =
   createImmutableSelector(uiSelector, ui => ui.get('accountActivePage'));
 
+// settings
+export const settingsNotificationSelector =
+  createImmutableSelector(uiSelector, ui => ui.getIn(['settings', 'notification']));
+
+export const settingsShortcutSelector =
+  createImmutableSelector(uiSelector, ui => ui.getIn(['settings', 'shortcut']));
+
+export const settingsStyleEnableSelector =
+  createImmutableSelector(uiSelector, ui => ui.getIn(['settings', 'style']));

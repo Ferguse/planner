@@ -134,3 +134,22 @@ export const changeAccountPage = date => ({
   type: ACCOUNT_PAGE_CHANGED,
   payload: date
 });
+
+// settings actions
+export const SETTINGS_NOTIFICATION_TOGGLED = '@@ui/SETTINGS_NOTIFICATION_TOGGLED';
+export const toggleSettingsNotification = payload => ({
+  type: SETTINGS_NOTIFICATION_TOGGLED,
+  payload
+});
+
+export const SETTINGS_SHORTCUT_TOGGLED = '@@ui/SETTINGS_SHORTCUT_TOGGLED';
+export const toggleSettingsShortcut = payload => ({
+  type: SETTINGS_SHORTCUT_TOGGLED,
+  payload
+});
+
+export const SETTINGS_STYLE_TOGGLED = '@@ui/SETTINGS_STYLE_TOGGLED';
+export const toggleSettingsStyle = payload => ({
+  type: SETTINGS_STYLE_TOGGLED,
+  payload
+});

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export default styled.aside`
-  min-width: 70%;
+  width: calc(100% - 150px)
 `;
