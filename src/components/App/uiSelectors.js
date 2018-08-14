@@ -25,3 +25,10 @@ export const settingsShortcutSelector =
 
 export const settingsStyleEnableSelector =
   createImmutableSelector(uiSelector, ui => ui.getIn(['settings', 'style']));
+
+// modals
+export const modalUserSelector =
+  createImmutableSelector(uiSelector, ui => ui.get('selectedUsertModal'));
+
+export const modalProjectSelector =
+  createImmutableSelector(uiSelector, ui => ui.get('selectedProjectModal'));

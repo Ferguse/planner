@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  width: 70%;
+  width: calc(100% - 200px);
   padding: 0 2% 0 0 ;
   height: 40px;
   display: flex;

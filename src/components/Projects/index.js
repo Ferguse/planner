@@ -3,12 +3,19 @@ import { compose } from 'recompose';
 import createImmutableSelector from 'create-immutable-selector';
 
 // eslint-disable-next-line max-len
-import { projectsSelector, usersSelector, selectedProjectSelector } from '../App/uiSelectors';
+import {
+  projectsSelector,
+  usersSelector,
+  selectedProjectSelector,
+  modalProjectSelector
+} from '../App/uiSelectors';
 import {
   changeDateMonth,
   selectedDay,
   selectProject,
-  selectUser
+  selectUser,
+  showModalProject,
+  closeModalProject
 } from '../App/uiActions';
 
 import Projects from './Projects';
@@ -17,10 +24,12 @@ const mapStateToProps = createImmutableSelector(
   projectsSelector,
   usersSelector,
   selectedProjectSelector,
-  (projects, users, selectedProject) => ({
+  modalProjectSelector,
+  (projects, users, selectedProject, modalProject) => ({
     projects,
     users,
-    selectedProject
+    selectedProject,
+    modalProject
   })
 );
 
@@ -28,7 +37,9 @@ const mapDispatchToProps = {
   changeDateMonth,
   selectedDay,
   selectProject,
-  selectUser
+  selectUser,
+  showModalProject,
+  closeModalProject
 };
 
 const withConnect = connect(

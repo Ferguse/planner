@@ -11,6 +11,9 @@ import Button from './styled/Button';
 import Days from './styled/Days';
 import Box from './styled/Box';
 
+// icons
+import arrow from '../../assets/icons/arrow.svg';
+
 class Header extends Component {
   render() {
    return (
@@ -20,7 +23,7 @@ class Header extends Component {
            type='button'
            onClick={this.props.changeMonth.bind(null, false)}
          >
-           Prev
+           <img src={arrow} alt='arrow' />
          </Button>
            {
              month[this.props.month]
@@ -29,7 +32,7 @@ class Header extends Component {
            type='button'
            onClick={this.props.changeMonth.bind(null, true)}
          >
-           Next
+           <img src={arrow} alt='arrow' />
          </Button>
        </Month>
        <Days>

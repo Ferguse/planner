@@ -23,7 +23,6 @@ export const selectUser = date => ({
 });
 
 // admin panel actions
-
 export const TITLE_PROJECT_CHANGED = '@@ui/TITLE_PROJECT_CHANGED';
 export const changeTitleProject = date => ({
   type: TITLE_PROJECT_CHANGED,
@@ -151,5 +150,29 @@ export const toggleSettingsShortcut = payload => ({
 export const SETTINGS_STYLE_TOGGLED = '@@ui/SETTINGS_STYLE_TOGGLED';
 export const toggleSettingsStyle = payload => ({
   type: SETTINGS_STYLE_TOGGLED,
+  payload
+});
+
+// modal show
+export const MODAL_PROJECT_SHOWED = '@@ui/MODAL_PROJECT_SHOWED';
+export const showModalProject = payload => ({
+  type: MODAL_PROJECT_SHOWED,
+  payload
+});
+
+export const MODAL_PROJECT_CLOSED = '@@ui/MODAL_PROJECT_CLOSED';
+export const closeModalProject = () => ({
+  type: MODAL_PROJECT_CLOSED
+});
+
+export const MODAL_USER_SHOWED = '@@ui/MODAL_USER_SHOWED';
+export const showModalUser = payload => ({
+  type: MODAL_USER_SHOWED,
+  payload
+});
+
+export const MODAL_USER_CLOSED = '@@ui/MODAL_USER_CLOSED';
+export const closeModalUser = payload => ({
+  type: MODAL_USER_CLOSED,
   payload
 });

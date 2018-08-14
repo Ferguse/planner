@@ -13,6 +13,8 @@ export const initialState = Map({
   projects: Immutable.fromJS(projects),
   selectedUser: '001',
   selectedProject: '000',
+  selectedProjectModal: null,
+  selectedUserModal: null,
   user: Immutable.fromJS({
     image: null,
     name: 'User',
@@ -119,6 +121,18 @@ export default (state = initialState, { type, payload }) => {
     }
     case uiActions.SETTINGS_STYLE_TOGGLED: {
       return state.setIn(['settings', 'style'], payload);
+    }
+    case uiActions.MODAL_PROJECT_SHOWED: {
+      return state.set('selectedProjectModal', payload);
+    }
+    case uiActions.MODAL_PROJECT_CLOSED: {
+      return state.set('selectedProjectModal', null);
+    }
+    case uiActions.MODAL_USER_SHOWED: {
+      return state.set('selectedUserModal', payload);
+    }
+    case uiActions.MODAL_USER_CLOSED: {
+      return state.set('selectedUserModal', null);
     }
     default:
       return state;

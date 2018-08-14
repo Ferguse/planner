@@ -25,8 +25,10 @@ class Project extends Component {
     return {
       'background': this.props.project.get('color'),
       'opacity': opacity / 100
-    }
-  }
+    };
+  };
+
+  handleOpenModal = project => () => this.props.showModalProject(project)
 
   render() {
     const {
@@ -39,7 +41,9 @@ class Project extends Component {
         <Header>
           <Name>
             <p
-              style={{background: project.get('color')}}
+              style={{ background: project.get('color') }}
+              onMouseOver={this.handleOpenModal(project)}
+              onMouseLeave={this.props.closeModalProject}
             >
               {project.get('title')}
             </p>
