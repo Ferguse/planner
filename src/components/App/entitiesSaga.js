@@ -9,17 +9,17 @@ import {
 import * as api from '../../api';
 import * as actions from './entitiesActions';
 
-function* fetchSources() {
-  try {
-    const sources = yield call(api.fetchSources);
-    yield put({
-      type: actions.SOURCES_FETCH_SUCCESS,
-      payload: Immutable.fromJS(sources)
-    });
-  } catch (error) {
-    yield put({ type: actions.SOURCES_FETCH_FAILURE, payload: error });
-  }
-}
+// function* fetchSources() {
+//   try {
+//     const sources = yield call(api.fetchSources);
+//     yield put({
+//       type: actions.SOURCES_FETCH_SUCCESS,
+//       payload: Immutable.fromJS(sources)
+//     });
+//   } catch (error) {
+//     yield put({ type: actions.SOURCES_FETCH_FAILURE, payload: error });
+//   }
+// }
 
 function* fetchUsers() {
   try {
@@ -95,7 +95,7 @@ function* fetchStaff() {
 
 function* Saga() {
   yield all([
-    takeLatest(actions.SOURCES_FETCH_REQUEST, fetchSources),
+    // takeLatest(actions.SOURCES_FETCH_REQUEST, fetchSources),
     takeLatest(actions.USER_FETCH_SUCCESS, fetchUser),
     takeLatest(actions.USERS_FETCH_SUCCESS, fetchUsers),
     takeLatest(actions.STAFFS_FETCH_REQUEST, fetchStaffs),

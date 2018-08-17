@@ -33,5 +33,3 @@ export const STAFF_FETCH_SUCCESS = '@@entities/STAFF_FETCH_SUCCESS';
 export const STAFF_FETCH_FAILURE = '@@entities/STAFF_FETCH_FAILURE';
 export const fetchStaff = () => ({ type: STAFF_FETCH_REQUEST });
 
-export const fetchSources = () => ({ type: SOURCES_FETCH_REQUEST });
-

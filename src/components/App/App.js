@@ -6,7 +6,7 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import 'normalize.css'
+import 'normalize.css';
 
 // styled
 import './styled/commonStyled';

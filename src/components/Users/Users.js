@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // container
-import User from '../User/User';
+import User from './User/User';
 import Header from '../Header/Header'
 
 // styled

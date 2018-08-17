@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Project from '../Project';
+import Project from './Project';
 import Header from '../Header'
 
 //styled

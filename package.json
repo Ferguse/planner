@@ -79,5 +79,5 @@
     "standard-version": "4.3.0",
     "supertest": "3.0.0"
   },
-  "proxy": "http://frontend.ru.com"
+  "proxy": "http://localhost:5000"
 }

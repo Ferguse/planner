@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 import createImmutableSelector from 'create-immutable-selector';
 
 // eslint-disable-next-line max-len
 import {
   projectsSelector,
   usersSelector
-} from '../App/uiSelectors';
+} from '../App/entitiesSelectors';
 import {
   changeDateMonth,
   selectedDay,
@@ -15,6 +15,24 @@ import {
 } from '../App/uiActions';
 
 import Users from './Users';
+
+import {
+  fetchUsers,
+  fetchProjects,
+  fetchStaffs,
+  fetchUser,
+  fetchStaff
+} from '../App/entitiesActions';
+
+const withLifecycle = lifecycle({
+  componentDidMount() {
+    this.props.fetchUsers();
+    this.props.fetchProjects();
+    this.props.fetchStaffs();
+    this.props.fetchUser();
+    this.props.fetchStaff();
+  }
+})
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
@@ -29,7 +47,12 @@ const mapDispatchToProps = {
   changeDateMonth,
   selectedDay,
   selectProject,
-  selectUser
+  selectUser,
+  fetchUsers,
+  fetchProjects,
+  fetchStaffs,
+  fetchUser,
+  fetchStaff
 };
 
 const withConnect = connect(
@@ -38,6 +61,7 @@ const withConnect = connect(
 );
 
 const enhance = compose(
-  withConnect
+  withConnect,
+  withLifecycle
 );
 export default enhance(Users);

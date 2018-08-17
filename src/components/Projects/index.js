@@ -8,7 +8,7 @@ import {
   usersSelector,
   selectedProjectSelector,
   modalProjectSelector
-} from '../App/uiSelectors';
+} from '../App/entitiesSelectors';
 import {
   changeDateMonth,
   selectedDay,

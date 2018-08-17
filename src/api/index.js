@@ -3,7 +3,6 @@
 import { fetchJSON } from '../utils';
 import urls from '../config/urls';
 
-
 export const fetchStaffs = () =>
   fetchJSON(urls.staffs).then(staffs => staffs, {});
 
