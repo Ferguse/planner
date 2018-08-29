@@ -4,7 +4,7 @@ export const uiSelector = state => state.get('entities');
 
 export const projectsSelector = createImmutableSelector(uiSelector, ui => ui.get('projects'));
 
-export const usersSelector = createImmutableSelector(uiSelector, ui => ui.get('users'));
+export const usersSelector = createImmutableSelector(uiSelector, ui => ui.get('staffs'));
 
 export const selectedProjectSelector = createImmutableSelector(uiSelector, ui => ui.get('selectedProject'));
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 
-import { fetchJSON } from '../utils';
+import { fetchJSON, postJSON } from '../utils';
 import urls from '../config/urls';
 
 export const fetchStaffs = () =>
@@ -20,3 +20,10 @@ export const fetchProjects = () =>
 
 export const fetchProject = () =>
   fetchJSON(urls.project).then(project => project, {});
+
+export const createUser = (body) => {
+  postJSON(urls.users, body);
+}
+
+export const createProject = (body) =>
+  postJSON(urls.projects, body);

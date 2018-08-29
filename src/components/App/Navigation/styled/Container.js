@@ -8,7 +8,7 @@ export default styled.div`
   font-size: 2rem;
   text-transform: uppercase;
   text-align: left;
-  padding: 5px 5%;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

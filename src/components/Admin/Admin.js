@@ -23,6 +23,7 @@ class Admin extends Component {
         <Navigation
           projects={projects}
           isActive={selectedProject}
+          isShowUser={this.state.isShowUser}
         />
         <Main
           project={currentProject}

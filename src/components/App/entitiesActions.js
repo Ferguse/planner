@@ -33,3 +33,16 @@ export const STAFF_FETCH_SUCCESS = '@@entities/STAFF_FETCH_SUCCESS';
 export const STAFF_FETCH_FAILURE = '@@entities/STAFF_FETCH_FAILURE';
 export const fetchStaff = () => ({ type: STAFF_FETCH_REQUEST });
 
+export const CREATE_PROJECT_REQUEST = '@@api/CREATE_PROJECT_REQUEST';
+export const CREATE_PROJECT_SUCCESS = '@@api/CREATE_PROJECT_SUCCESS';
+export const CREATE_PROJECT_FAILURE = '@@api/CREATE_PROJECT_FAILURE';
+export const createProject = (data) => {
+  return { type: CREATE_PROJECT_REQUEST, payload: data };
+};
+
+export const CREATE_USER_REQUEST = '@@api/CREATE_USER_REQUEST';
+export const CREATE_USER_SUCCESS = '@@api/CREATE_USER_SUCCESS';
+export const CREATE_USER_FAILURE = '@@api/CREATE_USER_FAILURE';
+export const createUser = (data) => {
+  return ({ type: CREATE_USER_REQUEST, payload: data });
+};

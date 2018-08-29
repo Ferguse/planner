@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 import createImmutableSelector from 'create-immutable-selector';
 
 // eslint-disable-next-line max-len
@@ -18,7 +18,27 @@ import {
   closeModalProject
 } from '../App/uiActions';
 
+import {
+  fetchUsers,
+  fetchProjects,
+  fetchStaffs,
+  fetchUser,
+  fetchStaff
+} from '../App/entitiesActions';
+
+
 import Projects from './Projects';
+
+const withLifecycle = lifecycle({
+  componentDidMount() {
+    this.props.fetchUsers();
+    this.props.fetchProjects();
+    this.props.fetchStaffs();
+    this.props.fetchUser();
+    this.props.fetchStaff();
+  }
+});
+
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
@@ -39,7 +59,12 @@ const mapDispatchToProps = {
   selectProject,
   selectUser,
   showModalProject,
-  closeModalProject
+  closeModalProject,
+  fetchUsers,
+  fetchProjects,
+  fetchStaffs,
+  fetchUser,
+  fetchStaff
 };
 
 const withConnect = connect(
@@ -48,6 +73,7 @@ const withConnect = connect(
 );
 
 const enhance = compose(
-  withConnect
+  withConnect,
+  withLifecycle
 );
 export default enhance(Projects);

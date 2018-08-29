@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // container
 import User from './User/User';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
 
 // styled
 import Container from './styled/Container';
@@ -17,7 +17,7 @@ class Users extends Component {
     };
   }
 
-  updateColorValue = e => {
+  updateColorValue = (e) => {
     this.setState({
       inputColorValue: e.target.value
     });
@@ -37,16 +37,14 @@ class Users extends Component {
           year={this.state.year}
           changeMonth={this.props.changeMonth}
         />
-        <div className="main__content">
+        <div className='main__content'>
           {
-            this.props.users.toList().map(item => {
-              return <User
+            this.props.users.toList().map(item => <User
                 month={this.props.month}
                 key={item}
                 user={item}
                 projects={this.props.projects}
-              />
-            })
+              />)
           }
         </div>
       </Container>

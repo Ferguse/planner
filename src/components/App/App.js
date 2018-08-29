@@ -11,13 +11,14 @@ import 'normalize.css';
 // styled
 import './styled/commonStyled';
 
-//components
+// components
 import Admin from '../Admin';
 import Users from '../Users';
 import Projects from '../Projects';
-import Navigation from '../Navigation';
+import Navigation from './Navigation';
 import Account from '../Account';
-
+import CreatePage from '../CreatePage';
+import Registration from '../Registration';
 
 class App extends Component {
   constructor() {
@@ -25,20 +26,20 @@ class App extends Component {
     this.state = {
       month: null,
       year: null
-    }
-    this.changeMonth = this.changeMonth.bind(this)
+    };
+    this.changeMonth = this.changeMonth.bind(this);
   }
 
   componentWillMount() {
     this.setState({
       month: 1,
       year: 2017
-    })
+    });
   }
 
   changeMonth(bool) {
     let month = this.state.month;
-    let year = this.state.year;
+    const year = this.state.year;
     let newYear;
     month = (bool) ? month + 1 : month - 1;
 
@@ -52,7 +53,7 @@ class App extends Component {
       newYear = year - 1;
     }
     this.setState({
-      month: month,
+      month,
       year: newYear
     });
   }
@@ -61,14 +62,14 @@ class App extends Component {
     return (
       <Provider store={this.props.store}>
         <Router>
-          <main role="main">
+          <main role='main'>
             <Navigation/>
             <Switch>
               <Route
-                exact path="/"
+                exact path='/'
                 render={() => (
                   <Redirect
-                    to="/users"
+                    to='/users'
                     month={this.state.month}
                     year={this.state.year}
                     changeMonth={this.changeMonth}
@@ -77,14 +78,14 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/account"
+                path='/account'
                 render={() => (
                   <Account/>
                 )}
               />
               <Route
                 exact
-                path="/admin"
+                path='/admin'
                 changeMonth={this.changeMonth}
                 render={() => (
                   <Admin/>
@@ -92,7 +93,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/users"
+                path='/users'
                 render={() => (
                   <Users
                     changeMonth={this.changeMonth}
@@ -104,7 +105,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path="/projects"
+                path='/projects'
                 render={() => (
                   <Projects
                     changeMonth={this.changeMonth}
@@ -114,11 +115,18 @@ class App extends Component {
                   />
                 )}
               />
+              <Route
+                path='/create/:target'
+                component={CreatePage}
+              />
+              <Route
+                path='/registration'
+                component={Registration}
+              />
             </Switch>
           </main>
         </Router>
       </Provider>
-
     );
   }
 }

@@ -9,28 +9,31 @@ import {
 import * as api from '../../api';
 import * as actions from './entitiesActions';
 
-// function* fetchSources() {
-//   try {
-//     const sources = yield call(api.fetchSources);
-//     yield put({
-//       type: actions.SOURCES_FETCH_SUCCESS,
-//       payload: Immutable.fromJS(sources)
-//     });
-//   } catch (error) {
-//     yield put({ type: actions.SOURCES_FETCH_FAILURE, payload: error });
-//   }
-// }
-
-function* fetchUsers() {
+function* createUser({ payload }) {
   try {
-    const users = yield call(api.fetchUsers);
+    console.log(payload)
+    const stop = yield call(api.createUser, payload);
+    console.log(stop)
     yield put({
-      type: actions.USERS_FETCH_SUCCESS,
-      payload: Immutable.fromJS(users)
+      type: actions.CREATE_USER_SUCCESS,
+      payload: Immutable.fromJS(stop)
     });
   } catch (error) {
-    yield put({ type: actions.USERS_FETCH_FAILURE, payload: error });
+    yield put({ type: actions.CREATE_USER_FAILURE, payload: error });
   }
+}
+
+function* createProject({ payload }) {
+  try {
+    const stop = yield call(api.createProject, payload);
+    yield put({
+      type: actions.CREATE_PROJECT_SUCCESS,
+      payload: Immutable.fromJS(stop[0].feature)
+    });
+  } catch (error) {
+    yield put({ type: actions.CREATE_PROJECT_FAILURE, payload: error });
+  }
+
 }
 
 function* fetchUser() {
@@ -97,11 +100,13 @@ function* Saga() {
   yield all([
     // takeLatest(actions.SOURCES_FETCH_REQUEST, fetchSources),
     takeLatest(actions.USER_FETCH_SUCCESS, fetchUser),
-    takeLatest(actions.USERS_FETCH_SUCCESS, fetchUsers),
+    // takeLatest(actions.USERS_FETCH_SUCCESS, fetchUsers),
     takeLatest(actions.STAFFS_FETCH_REQUEST, fetchStaffs),
     takeLatest(actions.STAFF_FETCH_REQUEST, fetchStaff),
     takeLatest(actions.PROJECTS_FETCH_REQUEST, fetchProjects),
-    takeLatest(actions.PROJECT_FETCH_REQUEST, fetchProject)
+    takeLatest(actions.PROJECT_FETCH_REQUEST, fetchProject),
+    takeLatest(actions.CREATE_USER_REQUEST, createUser),
+    takeLatest(actions.CREATE_PROJECT_REQUEST, createProject)
   ]);
 }
 

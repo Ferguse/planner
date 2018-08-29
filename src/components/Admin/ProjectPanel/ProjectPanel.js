@@ -64,8 +64,8 @@ ProjectPanel.propTypes = {
   changeTitleProject: PropTypes.func.isRequired,
   changeContentProject: PropTypes.func.isRequired,
   changeColorProject: PropTypes.func.isRequired,
-  deleteProject: PropTypes.func.isRequired
-
+  deleteProject: PropTypes.func.isRequired,
+  handleShowUserPanel: PropTypes.func.isRequired
 };
 
 export default ProjectPanel;

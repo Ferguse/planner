@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // source
-import navigation from '../../source/navigation';
+import navigation from '../../../source/navigation';
 
 //styled
 import Container from './styled/Container';
@@ -10,7 +10,7 @@ import Navigator from './styled/Navigator';
 import Account from './styled/Account';
 
 // icon
-import user from '../../assets/icons/user.jpg';
+import user from '../../../assets/icons/user.jpg';
 
 const Title = () => (
   <Container>
