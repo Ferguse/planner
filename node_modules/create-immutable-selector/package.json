@@ -1,0 +1,52 @@
+{
+  "name": "create-immutable-selector",
+  "version": "1.0.0",
+  "description": "Immutable.js reselect selector",
+  "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
+  "license": "MIT",
+  "keywords": ["reselect", "immutable", "memoize"],
+  "files": ["dist"],
+  "main": "dist/create-immutable-selector.cjs.js",
+  "module": "dist/create-immutable-selector.esm.js",
+  "browser": "dist/create-immutable-selector.umd.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged",
+    "cz": "git-cz",
+    "release": "standard-version",
+    "prepublishOnly": "npm run build"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier-eslint --write", "git add"]
+  },
+  "peerDependencies": {
+    "immutable": "^4.0.0-rc.9",
+    "reselect": "^3.0.1"
+  },
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3",
+    "immutable": "^4.0.0-rc.9",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1",
+    "prettier-eslint": "^8.8.1",
+    "prettier-eslint-cli": "^4.7.1",
+    "reselect": "^3.0.1",
+    "rollup": "^0.56.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "standard-version": "^4.3.0"
+  }
+}
