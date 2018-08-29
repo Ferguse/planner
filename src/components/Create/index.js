@@ -13,7 +13,7 @@ import {
   createProject
 } from '../App/entitiesActions';
 
-import CreatePage from './CreatePage';
+import Create from './Create';
 
 const mapStateToProps = createImmutableSelector(
   projectsSelector,
@@ -39,4 +39,4 @@ const withConnect = connect(
 const enhance = compose(
   withConnect
 );
-export default enhance(CreatePage);
+export default enhance(Create);

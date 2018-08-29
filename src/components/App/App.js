@@ -17,7 +17,7 @@ import Users from '../Users';
 import Projects from '../Projects';
 import Navigation from './Navigation';
 import Account from '../Account';
-import CreatePage from '../CreatePage';
+import CreatePage from '../Create';
 import Registration from '../Registration';
 
 class App extends Component {
